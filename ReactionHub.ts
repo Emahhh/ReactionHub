@@ -17,7 +17,7 @@ function createURL(query: string): string{
 }
 
 function search(accounts: string[]): void {
-    window.open(createURL(document.getElementById("typed").value, accounts));
+    window.open(createURL(createQuery(document.getElementById("typed").value, accounts)));
 }
 
 function searchByChecked(): void{

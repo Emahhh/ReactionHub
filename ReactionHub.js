@@ -16,7 +16,7 @@ function createURL(query) {
     return "https://twitter.com/search?q=".concat(encodeURI(query));
 }
 function search(accounts) {
-    window.open(createURL(document.getElementById("typed").value, accounts));
+    window.open(createURL(createQuery(document.getElementById("typed").value, accounts)));
 }
 function searchByChecked() {
     var accounts = [];
