@@ -43,13 +43,19 @@
 
       h1 {
         font-family: "Archivo Black", sans-serif;
-  letter-spacing: -1px;
-        
-      }
-      h1, #subtitle {
-        text-shadow: 0 0 5px rgb(100, 85, 85), 0 0 5px rgb(255, 255, 255), 0 0 5px rgb(255, 255, 255), 0 0 5px rgb(255, 255, 255) solid;
-      }
+        letter-spacing: -1px;
+        color: #fff;
+        top: 35%;
+        width: 100%;
 
+        text-shadow: 0 1px 0 hsl(174, 5%, 80%), 0 2px 0 hsl(174, 5%, 75%),
+          0 3px 0 hsl(174, 5%, 70%), 0 4px 0 hsl(174, 5%, 66%),
+          0 5px 0 hsl(174, 5%, 64%), 0 6px 0 hsl(174, 5%, 62%),
+          0 7px 0 hsl(174, 5%, 61%), 0 8px 0 hsl(174, 5%, 60%),
+          0 0 5px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.2),
+          0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.2),
+          0 10px 10px rgba(0, 0, 0, 0.2), 0 20px 20px rgba(0, 0, 0, 0.3);
+      }
     </style>
   </head>
 
@@ -57,7 +63,9 @@
     <div class="container-sm">
       <br />
       <h1>ReactionHub</h1>
-      <p class="lh-sm " id="subtitle">Twitter's best reaction videos are one tap away.</p>
+      <p class="lh-sm" id="subtitle">
+        Twitter's best reaction videos are one tap away.
+      </p>
       <br />
 
       <script
@@ -203,7 +211,8 @@
                   id="kpopCheckbox"
                 />
                 <label class="form-check-label" for="kpopCheckbox"
-                  ><strong>K-Pop twitter</strong>. We have fancams and idols!</label
+                  ><strong>K-Pop twitter</strong>. We have fancams and
+                  idols!</label
                 >
               </div>
               <br />
