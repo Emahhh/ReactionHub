@@ -85,8 +85,9 @@ function searchByChecked() {
     search(accounts);
 }
 // test
-var accounts = ["findurmeme", "allreactionvids"];
-var keyword = "hey";
+/* let accounts: string[] = [`findurmeme`, `allreactionvids`];
+let keyword: string = `hey`;
+
 console.log(accounts.toString());
-var myquery = createQuery(keyword, accounts);
-console.log(createURL(myquery));
+let myquery = createQuery(keyword, accounts)
+console.log( createURL(myquery));  */ 
