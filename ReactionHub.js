@@ -15,7 +15,6 @@ var accIta = [
     '@BotElenoire',
     '@giussarchive',
     '@falizzovid',
-    '@falizzo',
     '@oocgfvip',
     '@memevari'
 ];
