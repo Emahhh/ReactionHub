@@ -18,7 +18,8 @@ let accIta = [
     '@giussarchive',
     '@falizzovid',
     '@oocgfvip',
-    '@memevari'
+    '@memevari',
+'s_medi4'
 
 ];
 
