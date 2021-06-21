@@ -1,8 +1,3 @@
-// ReactionHub
-
-// mettere nella page lista operatori https://developer.twitter.com/en/docs/twitter-api/v1/rules-and-filtering/search-operators
-// se vuoi fare just one of these keywords fai un'altra funzione che trasforma keyword in keyword con OR
-
 // accounts
 let accIta = [
     '@elenoire_video',
@@ -19,9 +14,8 @@ let accIta = [
     '@falizzovid',
     '@oocgfvip',
     '@memevari',
-'s_medi4',
-'emanuelabot1'
-
+    's_medi4',
+    'emanuelabot1'
 ];
 
 let accStan = [
@@ -54,7 +48,23 @@ let accKpop = [
     '@chunghareaction',
     '@kpreactionvids',
     '@ex0vid',
-    '@kpopreactionss'
+    '@kpopreactionss',
+    '@KpopFancams6',
+    '@kpopthins',
+    '@fancamie',
+    '@multifancams',
+    '@kjongincams',
+    '@chaelinfancam',
+    '@skizfancams',
+    '@svtfancams',
+    '@jenniesverses',
+    '@bangtanfancam',
+    '@eternaIsbts',
+    '@BTSARMY_fancam',
+    '@uhbtscam',
+    '@loonafancamss',
+    '@Ioonacams',
+    '@jinsoulcam'
 ];
 
 
@@ -81,18 +91,18 @@ function createURL(query: string): string{
 }
 
 function search(accounts: string[]): void {
-    window.open(createURL(createQuery(document.getElementById("typed").value, accounts)));
+    window.open(createURL(createQuery((<HTMLInputElement>document.getElementById("typed")).value, accounts)));
 }
 
 function searchByChecked(): void{
     let accounts: string[] = [];
-    if(document.getElementById("stantwitterCheckbox").checked){
+    if((<HTMLInputElement>document.getElementById("stantwitterCheckbox")).checked){
         accounts.push(...accStan);
     }
-    if(document.getElementById("italiantwitterCheckbox").checked){
+    if((<HTMLInputElement>document.getElementById("italiantwitterCheckbox")).checked){
         accounts.push(...accIta);
     }
-    if(document.getElementById("kpopCheckbox").checked){
+    if((<HTMLInputElement>document.getElementById("kpopCheckbox")).checked){
         accounts.push(...accKpop);
     }
     search(accounts);

@@ -16,7 +16,9 @@ var accIta = [
     '@giussarchive',
     '@falizzovid',
     '@oocgfvip',
-    '@memevari'
+    '@memevari',
+    's_medi4',
+    'emanuelabot1'
 ];
 var accStan = [
     '@TheMemesArchive',
@@ -47,7 +49,20 @@ var accKpop = [
     '@chunghareaction',
     '@kpreactionvids',
     '@ex0vid',
-    '@kpopreactionss'
+    '@kpopreactionss',
+    '@KpopFancams6',
+    '@kpopthins',
+    '@fancamie',
+    '@multifancams',
+    '@kjongincams',
+    '@chaelinfancam',
+    '@skizfancams',
+    '@svtfancams',
+    '@jenniesverses',
+    '@bangtanfancam',
+    '@eternaIsbts',
+    '@BTSARMY_fancam',
+    '@uhbtscam',
 ];
 /* utilities
 console.log(accStan.filter(( t={}, a=> (t[a]=a in t) )));
@@ -89,4 +104,4 @@ let keyword: string = `hey`;
 
 console.log(accounts.toString());
 let myquery = createQuery(keyword, accounts)
-console.log( createURL(myquery));  */ 
+console.log( createURL(myquery));  */
