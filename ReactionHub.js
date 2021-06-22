@@ -99,10 +99,3 @@ function searchByChecked() {
     }
     search(accounts);
 }
-// test
-/* let accounts: string[] = [`findurmeme`, `allreactionvids`];
-let keyword: string = `hey`;
-
-console.log(accounts.toString());
-let myquery = createQuery(keyword, accounts)
-console.log( createURL(myquery));  */

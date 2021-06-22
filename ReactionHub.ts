@@ -69,15 +69,12 @@ let accKpop = [
     '@jinsoulcam'
 ];
 
-
 // utilities
 /* console.log(accStan.filter(( t={}, a=> (t[a]=a in t) )));
 console.log(accKpop.filter(( t={}, a=> (t[a]=a in t) )));
 console.log(accIta.filter(( t={}, a=> (t[a]=a in t) )));
 console.log(accKpop.length+accStan.length+accIta.length); */
 // end accounts
-
-
 
 function createQuery(keyword: string, accounts: string[]): string{
     let queryAccounts: string = ``;
@@ -108,11 +105,3 @@ function searchByChecked(): void{
     }
     search(accounts);
 }
-
-// test
-/* let accounts: string[] = [`findurmeme`, `allreactionvids`]; 
-let keyword: string = `hey`;
-
-console.log(accounts.toString()); 
-let myquery = createQuery(keyword, accounts)
-console.log( createURL(myquery));  */
