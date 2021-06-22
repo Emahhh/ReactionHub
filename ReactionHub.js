@@ -29,16 +29,16 @@ let accStan = [
     '@Ajayreactions',
     '@yakuzareactions',
     '@acervoqueen',
-    '@azealiareacts',
+    // '@azealiareacts',
     '@GabbieReaction',
     '@miriamsedit',
-    '@ajayiivids',
+    // '@ajayiivids',
     '@crack_cloud',
     '@imbabyvids',
     '@ReactionVideos_',
     '@reactvideoos',
     '@VideosFolder',
-    '@patpatonthecat',
+    // '@patpatonthecat',
     '@reaction_hub'
 ];
 let accKpop = [
@@ -53,18 +53,18 @@ let accKpop = [
     '@kpopthins',
     '@fancamie',
     '@multifancams',
-    '@kjongincams',
+    // '@kjongincams',
     '@chaelinfancam',
     '@skizfancams',
     '@svtfancams',
-    '@jenniesverses',
+    // '@jenniesverses',
     '@bangtanfancam',
     '@eternaIsbts',
     '@BTSARMY_fancam',
-    '@uhbtscam',
+    // '@uhbtscam',
     '@loonafancamss',
     '@Ioonacams',
-    '@jinsoulcam'
+    // '@jinsoulcam'
 ];
 // utilities
 /* console.log(accStan.filter(( t={}, a=> (t[a]=a in t) )));
