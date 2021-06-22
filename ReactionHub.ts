@@ -28,7 +28,7 @@ let accStan = [
     '@dlipameme',
     '@findurvideo',
     '@Ajayreactions',
-    '@yakuzareactions',
+    // '@yakuzareactions',
     '@acervoqueen',
     // '@azealiareacts',
     '@GabbieReaction',
