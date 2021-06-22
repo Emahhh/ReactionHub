@@ -104,4 +104,5 @@ function searchByChecked(): void{
         accounts.push(...accKpop);
     }
     search(accounts);
+    window.focus();
 }

@@ -98,4 +98,5 @@ function searchByChecked() {
         accounts.push.apply(accounts, accKpop);
     }
     search(accounts);
+    window.focus();
 }
