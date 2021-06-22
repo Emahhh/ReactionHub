@@ -104,5 +104,8 @@ function searchByChecked(): void{
         accounts.push(...accKpop);
     }
     search(accounts);
-    window.focus();
+    
+    if (['iPhone', 'iPad', 'iPod'].includes(navigator.platform)) {
+        window.open(window.location.href,"_self")
+    }
 }

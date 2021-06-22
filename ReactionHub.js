@@ -1,5 +1,5 @@
 // accounts
-var accIta = [
+let accIta = [
     '@elenoire_video',
     '@OutFacchetti',
     '@oocisola',
@@ -18,7 +18,7 @@ var accIta = [
     'emanuelabot1',
     '@ItaReaction'
 ];
-var accStan = [
+let accStan = [
     '@TheMemesArchive',
     '@memebiblee',
     '@allreactionvids',
@@ -41,7 +41,7 @@ var accStan = [
     '@patpatonthecat',
     '@reaction_hub'
 ];
-var accKpop = [
+let accKpop = [
     '@videonct',
     '@GOT7reactvids',
     '@svtreaction',
@@ -73,30 +73,31 @@ console.log(accIta.filter(( t={}, a=> (t[a]=a in t) )));
 console.log(accKpop.length+accStan.length+accIta.length); */
 // end accounts
 function createQuery(keyword, accounts) {
-    var queryAccounts = "";
-    for (var _i = 0, accounts_1 = accounts; _i < accounts_1.length; _i++) {
-        var e = accounts_1[_i];
-        queryAccounts += "OR from:", queryAccounts += e, queryAccounts += ", ";
+    let queryAccounts = ``;
+    for (let e of accounts) {
+        queryAccounts += `OR from:`, queryAccounts += e, queryAccounts += `, `;
     }
-    return "filter:media ".concat(keyword, " (", queryAccounts, ")");
+    return "filter:media ".concat(keyword, ` (`, queryAccounts, `)`);
 }
 function createURL(query) {
-    return "https://twitter.com/search?q=".concat(encodeURI(query));
+    return `https://twitter.com/search?q=`.concat(encodeURI(query));
 }
 function search(accounts) {
     window.open(createURL(createQuery(document.getElementById("typed").value, accounts)));
 }
 function searchByChecked() {
-    var accounts = [];
+    let accounts = [];
     if (document.getElementById("stantwitterCheckbox").checked) {
-        accounts.push.apply(accounts, accStan);
+        accounts.push(...accStan);
     }
     if (document.getElementById("italiantwitterCheckbox").checked) {
-        accounts.push.apply(accounts, accIta);
+        accounts.push(...accIta);
     }
     if (document.getElementById("kpopCheckbox").checked) {
-        accounts.push.apply(accounts, accKpop);
+        accounts.push(...accKpop);
     }
     search(accounts);
-    window.focus();
+    if (['iPhone', 'iPad', 'iPod'].includes(navigator.platform)) {
+        window.open(window.location.href, "_self");
+    }
 }
