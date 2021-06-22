@@ -15,7 +15,8 @@ let accIta = [
     '@oocgfvip',
     '@memevari',
     's_medi4',
-    'emanuelabot1'
+    'emanuelabot1',
+    '@ItaReaction'
 ];
 
 let accStan = [
@@ -38,7 +39,8 @@ let accStan = [
     '@ReactionVideos_',
     '@reactvideoos',
     '@VideosFolder',
-    '@patpatonthecat'
+    '@patpatonthecat',
+    '@reaction_hub'
 ];
 
 let accKpop = [
@@ -68,12 +70,11 @@ let accKpop = [
 ];
 
 
-/* utilities
-console.log(accStan.filter(( t={}, a=> (t[a]=a in t) )));
+// utilities
+/* console.log(accStan.filter(( t={}, a=> (t[a]=a in t) )));
 console.log(accKpop.filter(( t={}, a=> (t[a]=a in t) )));
 console.log(accIta.filter(( t={}, a=> (t[a]=a in t) )));
-console.log(accKpop.length+accStan.length+accIta.length);
-*/
+console.log(accKpop.length+accStan.length+accIta.length); */
 // end accounts
 
 

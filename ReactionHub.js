@@ -1,6 +1,3 @@
-// ReactionHub
-// mettere nella page lista operatori https://developer.twitter.com/en/docs/twitter-api/v1/rules-and-filtering/search-operators
-// se vuoi fare just one of these keywords fai un'altra funzione che trasforma keyword in keyword con OR
 // accounts
 var accIta = [
     '@elenoire_video',
@@ -18,7 +15,8 @@ var accIta = [
     '@oocgfvip',
     '@memevari',
     's_medi4',
-    'emanuelabot1'
+    'emanuelabot1',
+    '@ItaReaction'
 ];
 var accStan = [
     '@TheMemesArchive',
@@ -40,7 +38,8 @@ var accStan = [
     '@ReactionVideos_',
     '@reactvideoos',
     '@VideosFolder',
-    '@patpatonthecat'
+    '@patpatonthecat',
+    '@reaction_hub'
 ];
 var accKpop = [
     '@videonct',
@@ -63,13 +62,15 @@ var accKpop = [
     '@eternaIsbts',
     '@BTSARMY_fancam',
     '@uhbtscam',
+    '@loonafancamss',
+    '@Ioonacams',
+    '@jinsoulcam'
 ];
-/* utilities
-console.log(accStan.filter(( t={}, a=> (t[a]=a in t) )));
+// utilities
+/* console.log(accStan.filter(( t={}, a=> (t[a]=a in t) )));
 console.log(accKpop.filter(( t={}, a=> (t[a]=a in t) )));
 console.log(accIta.filter(( t={}, a=> (t[a]=a in t) )));
-console.log(accKpop.length+accStan.length+accIta.length);
-*/
+console.log(accKpop.length+accStan.length+accIta.length); */
 // end accounts
 function createQuery(keyword, accounts) {
     var queryAccounts = "";
