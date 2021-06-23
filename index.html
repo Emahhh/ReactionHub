@@ -40,6 +40,7 @@
   </head>
 
   <body>
+    <div id="overlay"> </div>
     <div class="container-sm">
       <br />
       <h1>ReactionHub</h1>
@@ -55,7 +56,7 @@
       ></script>
 
       <!-- Search bar -->
-      <div class="shadow-lg input-group rounded-3">
+      <div class="shadow input-group rounded-3" id="myInput">
         <!-- Example strings as a placeholder in the search bar -->
         <div id="typed-strings">
           <p>Search...</p>
@@ -90,7 +91,7 @@
 
         <input
           type="text"
-          class="form-control rounded-start"
+          class="form-control rounded-start shadow-lg"
           placeholder=""
           id="typed"
         />
@@ -115,8 +116,7 @@
       </div>
       <br /><br />
 
-      <!-- cards -->
-      <div class="rounded-3 shadow" id="card">
+      <div class="rounded-3 shadow mycard">
         <div class="p-2">
           <h4>Search inside...</h4>
           <br />
@@ -127,87 +127,77 @@
               role="tabpanel"
               aria-labelledby="nav-featured-tab"
             >
-              <div class="form-check form-switch">
+
+              <div class="form-check">
                 <input
                   class="form-check-input"
-                  type="checkbox"
+                  type="radio"
                   id="stantwitterCheckbox"
+                  name = "radiobutton"
                   checked
                 />
                 <label class="form-check-label" for="stantwitterCheckbox"
                   ><strong>Stan twitter</strong>. the main list.</label
                 >
               </div>
-              <div class="form-check form-switch">
+              <div class="form-check">
                 <input
                   class="form-check-input"
-                  type="checkbox"
+                  type="radio"
                   id="italiantwitterCheckbox"
+                  name = "radiobutton"
                 />
                 <label class="form-check-label" for="italiantwitterCheckbox"
                   ><strong>Italian twitter</strong>. Elenoire, reality italiani
                   e altro.</label
                 >
               </div>
-              <div class="form-check form-switch">
+              <div class="form-check">
                 <input
                   class="form-check-input"
-                  type="checkbox"
+                  type="radio"
                   id="kpopCheckbox"
+                  name = "radiobutton"
                 />
                 <label class="form-check-label" for="kpopCheckbox"
                   ><strong>K-Pop twitter</strong>. Fancams and other
                   videos!</label
                 >
               </div>
-              <br /><br />
-              <br />
-              <hr />
-              <br />
-              <p class="fw-light">
-                Select one or more of the lists above containing a selection of
-                featured accounts. The videos will be searched among all the
-                tweets from these accounts. For better results use very simple
-                keywords, better if just one.
-                <br />
-                <b>Tip: leave the search bar empty to see what's trending</b>.
-                <br />
-                <br />
-                Follow us on Twitter:
-                <a href="https://twitter.com/reaction_hub">@reaction_hub</a>.
-                Easily download twitter videos
-                <a href="https://twittervideodownloader.com/">here</a>. View
-                this project on
-                <a href="https://github.com/Emahhh/ReactionHub">GitHub</a>.
-                <br />
-                Every intellectual property, trademark etc. belongs to the
-                resective owners. This page is not affiliated with Twitter in any
-                way.
-              </p>
-            </div>
-            <div
-              class="tab-pane fade"
-              id="nav-type"
-              role="tabpanel"
-              aria-labelledby="nav-type-tab"
-            >
-              <p>
-                Insert the <code>@names</code> of the accounts separated by a
-                comma (<code>,</code>). The videos will be searched among all
-                the tweets from these accounts.
-              </p>
-              <div class="container">
-                <textarea
-                  class="form-control"
-                  id="exampleFormControlTextarea1"
-                  rows="3"
-                ></textarea>
-              </div>
             </div>
           </div>
         </div>
       </div>
-      <!-- end tabs -->
+      <br />
+      <br />
+      <div class="rounded-3 shadow mycard">
+        <div class="p-2">
+          <p>
+            <h5>Info</h5>
+            Select a list above containing a selection of
+            featured accounts. The videos will be searched among all the tweets
+            from these accounts. For better results use very simple keywords,
+            better if just one.
+            <br />
+            Tip: leave the search bar empty to see what's trending.
+            <br />
+            
+         
+          
+          </p>
+          <p class="fw-light">Follow us on Twitter:
+            <a href="https://twitter.com/reaction_hub">@reaction_hub</a>. Easily
+            download twitter videos
+            <a href="https://twittervideodownloader.com/">here</a>. View this
+            project on
+            <a href="https://github.com/Emahhh/ReactionHub">GitHub</a>.
+            <br /> Every intellectual property, trademark etc. belongs to the resective
+            owners. This page is not affiliated with Twitter in any way.
+          </p>
+         
+        </div>
+      </div>
     </div>
+    <br />
   </body>
 </html>
