@@ -1,7 +1,7 @@
 html, body {
     width: 100%;
     height: 100%;
-  }
+}
 
 body {
     background-image: url("img/exactly.gif");
@@ -9,6 +9,11 @@ body {
     
     padding: 0;
     margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
 }
 
 #overlay {
