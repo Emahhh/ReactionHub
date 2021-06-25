@@ -19,6 +19,7 @@ let accIta = [
     '@ItaReaction'
 ];
 
+// limit of 20 reached
 let accStan = [
     '@TheMemesArchive',
     '@memebiblee',
@@ -41,7 +42,7 @@ let accStan = [
     '@VideosFolder',
     '@patpatonthecat',
     '@reaction_hub',
-    '@poppersboomclap'
+    //'@poppersboomclap'
 ];
 
 let accKpop = [
@@ -71,6 +72,7 @@ let accKpop = [
 ];
 
 // utilities
+// query limit is apparently 20 acccounts per search
 /* console.log(accStan.filter(( t={}, a=> (t[a]=a in t) )));
 console.log(accKpop.filter(( t={}, a=> (t[a]=a in t) )));
 console.log(accIta.filter(( t={}, a=> (t[a]=a in t) )));
