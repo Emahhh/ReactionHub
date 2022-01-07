@@ -41,7 +41,7 @@ let accStan = [
     '@reactvideoos',
     '@VideosFolder',
     '@patpatonthecat',
-    '@reaction_hub',
+   // '@reaction_hub',
     //'@poppersboomclap'
 ];
 
