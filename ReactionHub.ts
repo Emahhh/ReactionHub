@@ -4,7 +4,7 @@ let accIta = [
     '@OutFacchetti',
     '@oocisola',
     '@oocgfvip5',
-    '@divanomat',
+    // '@divanomat',
     '@follettinaooc',
     '@_niguarda',
     '@OutChiara',
