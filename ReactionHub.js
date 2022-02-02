@@ -40,7 +40,7 @@ let accStan = [
     '@reactvideoos',
     '@VideosFolder',
     '@patpatonthecat',
-  //  '@reaction_hub',
+    // '@reaction_hub',
     //'@poppersboomclap'
 ];
 let accKpop = [
@@ -57,7 +57,7 @@ let accKpop = [
     '@multifancams',
     '@kjongincams',
     '@chaelinfancam',
-    '@skizfancams',
+    //  '@skizfancams',
     '@svtfancams',
     //  '@jenniesverses',
     '@bangtanfancam',
@@ -68,13 +68,28 @@ let accKpop = [
     '@Ioonacams',
     //  '@jinsoulcam'
 ];
-// utilities
-// query limit is apparently 20 acccounts per search
-/* console.log(accStan.filter(( t={}, a=> (t[a]=a in t) )));
-console.log(accKpop.filter(( t={}, a=> (t[a]=a in t) )));
-console.log(accIta.filter(( t={}, a=> (t[a]=a in t) )));
-console.log(accKpop.length+accStan.length+accIta.length); */
-// end accounts
+// test utilities - put true to test
+if (true) {
+    function showDuplicates(arr) {
+        let duplicates = [];
+        let unique = [];
+        for (let e of arr) {
+            if (unique.indexOf(e) === -1)
+                unique.push(e);
+            else
+                duplicates.push(e);
+        }
+        return duplicates;
+    }
+    // query limit is apparently ~20 acccounts per search
+    console.log(showDuplicates(accStan));
+    console.log(accStan.length);
+    console.log(showDuplicates(accIta));
+    console.log(accIta.length);
+    console.log(showDuplicates(accKpop));
+    console.log(accKpop.length);
+    console.log(accKpop.length + accStan.length + accIta.length);
+}
 function createQuery(keyword, accounts) {
     let queryAccounts = ``;
     for (let e of accounts) {

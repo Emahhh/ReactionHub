@@ -59,7 +59,7 @@ let accKpop = [
     '@multifancams',
     '@kjongincams',
     '@chaelinfancam',
-    '@skizfancams',
+  //  '@skizfancams',
     '@svtfancams',
    //  '@jenniesverses',
     '@bangtanfancam',
@@ -71,13 +71,30 @@ let accKpop = [
    //  '@jinsoulcam'
 ];
 
-// utilities
-// query limit is apparently 20 acccounts per search
-/* console.log(accStan.filter(( t={}, a=> (t[a]=a in t) )));
-console.log(accKpop.filter(( t={}, a=> (t[a]=a in t) )));
-console.log(accIta.filter(( t={}, a=> (t[a]=a in t) )));
-console.log(accKpop.length+accStan.length+accIta.length); */
-// end accounts
+// test utilities - put true to test
+if (true){
+function showDuplicates(arr: string[]): string[]{
+    let duplicates: string[] = [];
+    let unique: string[] = [];
+    for (let e of arr) {
+        if (unique.indexOf(e) === -1) unique.push(e);
+        else duplicates.push(e);
+    }
+    return duplicates;
+}
+
+// query limit is apparently ~20 acccounts per search
+console.log(showDuplicates(accStan));
+console.log(accStan.length);
+
+console.log(showDuplicates(accIta));
+console.log(accIta.length);
+
+console.log(showDuplicates(accKpop));
+console.log(accKpop.length);
+
+console.log(accKpop.length+accStan.length+accIta.length);
+}
 
 function createQuery(keyword: string, accounts: string[]): string{
     let queryAccounts: string = ``;
@@ -107,7 +124,7 @@ function searchByChecked(): void{
         accounts.push(...accKpop);
     }
     search(accounts);
-    
+
     if (['iPhone', 'iPad', 'iPod'].includes(navigator.platform)) {
         window.open(window.location.href,"_self")
     }
