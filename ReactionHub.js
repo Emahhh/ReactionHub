@@ -93,8 +93,11 @@ if (true) {
 function createQuery(keyword, accounts) {
     let queryAccounts = ``;
     for (let e of accounts) {
-        queryAccounts += `OR from:`, queryAccounts += e, queryAccounts += `, `;
+        queryAccounts += `OR from:`;
+        queryAccounts += e;
+        queryAccounts += `, `;
     }
+    queryAccounts = queryAccounts.substring(0, queryAccounts.length - 2);
     return "filter:media ".concat(keyword, ` (`, queryAccounts, `)`);
 }
 function createURL(query) {
