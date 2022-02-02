@@ -99,8 +99,11 @@ console.log(accKpop.length+accStan.length+accIta.length);
 function createQuery(keyword: string, accounts: string[]): string{
     let queryAccounts: string = ``;
     for (let e of accounts){
-        queryAccounts+= `OR from:`, queryAccounts+=e, queryAccounts+= `, `;
+        queryAccounts+= `OR from:`;
+        queryAccounts+=e;
+        queryAccounts+= `, `;
     }
+    queryAccounts = queryAccounts.substring(0, queryAccounts.length - 2);
     return "filter:media ".concat(keyword, ` (`, queryAccounts, `)`);
 }
 

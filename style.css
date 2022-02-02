@@ -4,9 +4,8 @@ html, body {
 }
 
 body {
-    background-image: url("img/exactly.gif");
+    /* background-image: url("img/exactly.gif"); */
     background-size: cover;
-    
     padding: 0;
     margin: 0;
     background-repeat: no-repeat;
