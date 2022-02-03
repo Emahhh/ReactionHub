@@ -16,7 +16,8 @@ let accIta = [
     '@memevari',
     's_medi4',
     'emanuelabot1',
-    '@ItaReaction'
+    '@ItaReaction',
+    '@giorgymemes',
 ];
 
 // limit of 20 reached
@@ -40,6 +41,7 @@ let accStan = [
     '@ReactionVideos_',
     '@reactvideoos',
     '@VideosFolder',
+    '@dustbin_nie',
    // '@patpatonthecat',
    // '@reaction_hub',
     //'@poppersboomclap'
@@ -47,6 +49,7 @@ let accStan = [
 
 let accKpop = [
     '@videonct',
+    '@dustbin_nie',
     '@GOT7reactvids',
     '@svtreaction',
     '@chunghareaction',
@@ -66,34 +69,34 @@ let accKpop = [
     '@eternaIsbts',
     '@BTSARMY_fancam',
     '@uhbtscam',
-    '@loonafancamss',
-    '@Ioonacams',
+   // '@loonafancamss',
+   // '@Ioonacams',
    //  '@jinsoulcam'
 ];
 
 // test utilities - put true to test
-if (true){
-function showDuplicates(arr: string[]): string[]{
-    let duplicates: string[] = [];
-    let unique: string[] = [];
-    for (let e of arr) {
-        if (unique.indexOf(e) === -1) unique.push(e);
-        else duplicates.push(e);
+if (false){
+    function showDuplicates(arr: string[]): string[]{
+        let duplicates: string[] = [];
+        let unique: string[] = [];
+        for (let e of arr) {
+            if (unique.indexOf(e) === -1) unique.push(e);
+            else duplicates.push(e);
+        }
+        return duplicates;
     }
-    return duplicates;
-}
 
-// query limit is apparently ~20 acccounts per search
-console.log(showDuplicates(accStan));
-console.log(accStan.length);
+    // query limit is apparently ~20 acccounts per search
+    console.log(showDuplicates(accStan));
+    console.log(accStan.length);
 
-console.log(showDuplicates(accIta));
-console.log(accIta.length);
+    console.log(showDuplicates(accIta));
+    console.log(accIta.length);
 
-console.log(showDuplicates(accKpop));
-console.log(accKpop.length);
+    console.log(showDuplicates(accKpop));
+    console.log(accKpop.length);
 
-console.log(accKpop.length+accStan.length+accIta.length);
+    console.log(accKpop.length+accStan.length+accIta.length);
 }
 
 function createQuery(keyword: string, accounts: string[]): string{

@@ -16,7 +16,8 @@ let accIta = [
     '@memevari',
     's_medi4',
     'emanuelabot1',
-    '@ItaReaction'
+    '@ItaReaction',
+    '@giorgymemes',
 ];
 // limit of 20 reached
 let accStan = [
@@ -39,12 +40,14 @@ let accStan = [
     '@ReactionVideos_',
     '@reactvideoos',
     '@VideosFolder',
-    '@patpatonthecat',
+    '@dustbin_nie',
+    // '@patpatonthecat',
     // '@reaction_hub',
     //'@poppersboomclap'
 ];
 let accKpop = [
     '@videonct',
+    '@dustbin_nie',
     '@GOT7reactvids',
     '@svtreaction',
     '@chunghareaction',
@@ -64,12 +67,12 @@ let accKpop = [
     '@eternaIsbts',
     '@BTSARMY_fancam',
     '@uhbtscam',
-    '@loonafancamss',
-    '@Ioonacams',
+    // '@loonafancamss',
+    // '@Ioonacams',
     //  '@jinsoulcam'
 ];
 // test utilities - put true to test
-if (true) {
+if (false) {
     function showDuplicates(arr) {
         let duplicates = [];
         let unique = [];
