@@ -54,7 +54,7 @@ let accKpop = [
     '@svtreaction',
     '@chunghareaction',
     '@kpreactionvids',
-    '@ex0vid',
+    // '@ex0vid',
     '@kpopreactionss',
     '@KpopFancams6',
     '@kpopthins',
@@ -69,21 +69,19 @@ let accKpop = [
     '@eternaIsbts',
     '@BTSARMY_fancam',
     '@uhbtscam',
+    '@KFiles4u'	
    // '@loonafancamss',
    // '@Ioonacams',
    //  '@jinsoulcam'
 ];
 
 // test utilities - put true to test
-if (false){
+if (true){
     function showDuplicates(arr: string[]): string[]{
-        let duplicates: string[] = [];
-        let unique: string[] = [];
-        for (let e of arr) {
-            if (unique.indexOf(e) === -1) unique.push(e);
-            else duplicates.push(e);
-        }
-        return duplicates;
+        // make all strings lowercase
+        arr = arr.map(e => e.toLowerCase());
+        // remove duplicates
+        return arr.filter((elem, index, self) => index !== self.indexOf(elem));
     }
 
     // query limit is apparently ~20 acccounts per search
