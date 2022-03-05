@@ -73,7 +73,8 @@ let accKpop = [
     //  '@jinsoulcam'
 ];
 // test utilities - put true to test
-if (true) {
+const TEST = true;
+if (TEST) {
     function showDuplicates(arr) {
         // make all strings lowercase
         arr = arr.map(e => e.toLowerCase());
