@@ -111,7 +111,7 @@ function createQuery(keyword: string, accounts: string[]): string{
 }
 
 function createURL(query: string): string{
-    return `https://twitter.com/search?q=`.concat(encodeURI(query));
+    return `https://twitter.com/search?q=`.concat(encodeURI(query)).concat(`&f=media`);
 }
 
 function search(accounts: string[]): void {

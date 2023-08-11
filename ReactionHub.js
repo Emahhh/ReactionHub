@@ -1,3 +1,4 @@
+"use strict";
 // accounts
 let accIta = [
     '@elenoire_video',
@@ -101,7 +102,7 @@ function createQuery(keyword, accounts) {
     return "filter:media ".concat(keyword, ` (`, queryAccounts, `)`);
 }
 function createURL(query) {
-    return `https://twitter.com/search?q=`.concat(encodeURI(query));
+    return `https://twitter.com/search?q=`.concat(encodeURI(query)).concat(`&f=media`);
 }
 function search(accounts) {
     window.open(createURL(createQuery(document.getElementById("typed").value, accounts)));
