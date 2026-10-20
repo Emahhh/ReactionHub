@@ -3,128 +3,85 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f8f7fb">
-  <meta name="description" content="Find the perfect reaction video on X. Search curated stan Twitter, Italian Twitter and K-pop accounts, or add your own sources.">
-  <meta property="og:title" content="ReactionHub — Find the perfect reaction">
-  <meta property="og:description" content="A better way to find iconic reaction videos on X.">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Find the reaction you're looking for. Search curated reaction accounts on X, or add your own.">
+  <meta property="og:title" content="ReactionHub — Find your reaction">
+  <meta property="og:description" content="One search for the best reactions on X.">
   <meta property="og:type" content="website">
-  <title>ReactionHub — Find the perfect reaction</title>
+  <title>ReactionHub — Find your reaction</title>
   <link rel="icon" href="img/iphone-icon.png">
   <link rel="apple-touch-icon" href="img/iphone-icon.png">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daisyui@5">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daisyui@5" type="text/css">
   <link rel="stylesheet" href="style.css">
   <script src="ReactionHub.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#search">Skip to search</a>
-  <header class="site-header shell">
-    <a class="brand" href="./" aria-label="ReactionHub home">
-      <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
-      <span>reaction<span class="brand-accent">hub</span><span class="brand-dot">.</span></span>
-    </a>
-    <nav aria-label="Main navigation">
-      <a href="#how-it-works">How it works</a>
-      <a href="https://github.com/Emahhh/ReactionHub" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
-    </nav>
+  <a class="skip-link" href="#typed">Skip to search</a>
+  <header class="site-header layout">
+    <a class="wordmark" href="./" aria-label="ReactionHub home"><span class="brand-icon" aria-hidden="true">✳</span> reactionhub<span class="brand-dot">.</span></a>
+    <a class="header-link" href="https://github.com/Emahhh/ReactionHub" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
   </header>
 
-  <main class="shell">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-copy">
-        <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> YOUR REACTION VIDEO FINDER</p>
-        <h1 id="hero-title">Every feeling<br>has a <span>reaction.</span></h1>
-        <p class="hero-description">Find that <em>one</em> perfect GIF-worthy moment. Search your favorite reaction accounts on X, all in one place.</p>
-        <div class="hero-meta"><span class="mini-avatar">✦</span> Made for the group chat, stan Twitter, and everyone in between.</div>
-      </div>
-      <div class="hero-art" aria-hidden="true">
-        <div class="art-halo"></div>
-        <div class="art-card art-card-back"><span class="art-sparkle">✴</span><span>the side eye</span><i>↗</i></div>
-        <div class="art-card art-card-mid"><span class="art-sparkle">✳</span><span>i'm screaming</span><i>↗</i></div>
-        <div class="art-card art-card-front"><span class="play-symbol">▶</span><span>it's giving iconic</span><i>↗</i></div>
-        <div class="art-sticker">100% reaction energy <span>✳</span></div>
-      </div>
+  <main class="layout">
+    <section class="intro" aria-labelledby="page-title">
+      <h1 id="page-title">Find your reaction<span class="title-dot">.</span></h1>
+      <p>The right reaction, without the endless scrolling. Search curated accounts on X.</p>
     </section>
 
-    <div class="workspace" id="search">
-      <section class="card bg-base-100 shadow-sm panel search-panel" aria-labelledby="search-title">
-        <div class="section-head">
-          <div><p class="kicker">YOUR SEARCH</p><h2 id="search-title">What are we looking for?</h2></div>
-          <span class="step-bubble" aria-hidden="true">01 / 02</span>
+    <form id="searchForm" action="https://x.com/search" method="get" target="_blank" novalidate>
+      <input type="hidden" name="q" id="searchQueryParam">
+      <input type="hidden" name="f" id="searchTabParam" value="media">
+      <label class="sr-only" for="typed">Search reactions</label>
+      <div class="search-box">
+        <svg class="search-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+        <input id="typed" class="input" type="search" autocomplete="off" placeholder="Crying, side eye, Lady Gaga…" aria-describedby="searchHint">
+        <button class="btn btn-primary" type="submit">Search <span aria-hidden="true">↗</span></button>
+      </div>
+      <p class="microcopy" id="searchHint">A word, name or quote. Leave empty to browse selected accounts.</p>
+
+      <div class="source-heading"><span>Search within</span><button class="edit-link" type="button" id="editAccounts">Edit my accounts <span aria-hidden="true">↗</span></button></div>
+      <div class="source-grid" id="sourceGrid" role="group" aria-label="Account collections">
+        <label class="source-chip"><input type="checkbox" data-source="stan" checked><span>Stan Twitter</span><span class="chip-check" aria-hidden="true">✓</span></label>
+        <label class="source-chip"><input type="checkbox" data-source="italian"><span>Italian</span><span class="chip-check" aria-hidden="true">✓</span></label>
+        <label class="source-chip"><input type="checkbox" data-source="kpop"><span>K-pop</span><span class="chip-check" aria-hidden="true">✓</span></label>
+        <label class="source-chip"><input type="checkbox" data-source="custom" id="customSource"><span>My accounts</span><span class="chip-check" aria-hidden="true">✓</span></label>
+      </div>
+      <span hidden id="stanCount"></span><span hidden id="italianCount"></span><span hidden id="kpopCount"></span><span hidden id="customCount"></span>
+      <p class="microcopy source-summary" id="sourceSummary" aria-live="polite"></p>
+
+      <details class="options">
+        <summary><span>Search options <span id="optionSummary" class="options-summary">All media · Media tab</span></span><span class="chevron" aria-hidden="true">⌄</span></summary>
+        <div class="options-content">
+          <label class="setting"><span>Media type</span><select class="select select-bordered" id="mediaFilter"><option value="media">Photos &amp; videos</option><option value="videos">Videos only</option><option value="images">Images only</option></select></label>
+          <label class="setting"><span>Results</span><select class="select select-bordered" id="resultsView"><option value="media">Media</option><option value="live">Latest</option><option value="top">Top</option></select></label>
+          <label class="setting setting-switch"><span>Exact phrase</span><input class="toggle toggle-sm" type="checkbox" id="exactPhrase" role="switch"></label>
+          <label class="setting setting-switch"><span>Search all of X <small>(ignore collections)</small></span><input class="toggle toggle-sm" type="checkbox" id="searchAll" role="switch"></label>
+          <div class="query-row"><code id="queryPreview" aria-live="polite"></code><button class="btn btn-ghost btn-sm" type="button" id="copySearch">Copy link ↗</button></div>
         </div>
-        <form id="searchForm" action="https://x.com/search" method="get" target="_blank" novalidate>
-          <input type="hidden" name="q" id="searchQueryParam">
-          <input type="hidden" name="f" id="searchTabParam" value="media">
-          <label for="typed" class="field-label">Describe the reaction</label>
-          <div class="search-control">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
-            <input class="input" id="typed" type="search" autocomplete="off" placeholder="crying, Wendy Williams, side eye…" aria-describedby="searchHint">
-            <button type="submit" class="btn btn-primary search-submit">Search on X <span aria-hidden="true">↗</span></button>
-          </div>
-          <p class="hint" id="searchHint">Keep it simple for better results. An empty search browses your selected accounts.</p>
-          <div class="content-divider"></div>
-          <div class="source-header">
-            <div><h3>Search within</h3><p>Pick one or more collections of reaction accounts.</p></div>
-            <button type="button" class="btn btn-ghost btn-sm text-button" id="editAccounts">Edit custom list <span aria-hidden="true">↗</span></button>
-          </div>
-          <div class="source-grid" id="sourceGrid" role="group" aria-label="Account collections">
-            <label class="source-card"><input type="checkbox" data-source="stan" checked><span class="badge badge-lg source-icon stan-icon" aria-hidden="true">✦</span><span class="source-text"><strong>Stan Twitter</strong><small id="stanCount">Reaction classics</small></span><span class="source-tick" aria-hidden="true">✓</span></label>
-            <label class="source-card"><input type="checkbox" data-source="italian"><span class="badge badge-lg source-icon italy-icon" aria-hidden="true">IT</span><span class="source-text"><strong>Italian Twitter</strong><small id="italianCount">Italian reactions</small></span><span class="source-tick" aria-hidden="true">✓</span></label>
-            <label class="source-card"><input type="checkbox" data-source="kpop"><span class="badge badge-lg source-icon kpop-icon" aria-hidden="true">♫</span><span class="source-text"><strong>K-pop</strong><small id="kpopCount">Fancams &amp; more</small></span><span class="source-tick" aria-hidden="true">✓</span></label>
-            <label class="source-card"><input type="checkbox" data-source="custom" id="customSource"><span class="badge badge-lg source-icon custom-icon" aria-hidden="true">＋</span><span class="source-text"><strong>My accounts</strong><small id="customCount">Add your own</small></span><span class="source-tick" aria-hidden="true">✓</span></label>
-          </div>
-          <label class="all-x-toggle"><input class="toggle toggle-primary toggle-sm" id="searchAll" type="checkbox" role="switch"><span>Search all of X instead</span><small>Ignore collections</small></label>
-          <p class="account-summary" id="sourceSummary" aria-live="polite"></p>
+      </details>
+      <p id="formMessage" class="form-message" role="status" aria-live="polite"></p>
+    </form>
 
-          <details class="advanced">
-            <summary><span><span class="settings-symbol" aria-hidden="true">☷</span> Search options</span><span class="option-summary" id="optionSummary">All media · Media tab</span></summary>
-            <div class="option-grid">
-              <label>Media type
-                <select class="select select-bordered" id="mediaFilter"><option value="media">Photos &amp; videos</option><option value="videos">Videos only</option><option value="images">Images only</option></select>
-              </label>
-              <label>Results tab
-                <select class="select select-bordered" id="resultsView"><option value="media">Media</option><option value="live">Latest</option><option value="top">Top</option></select>
-              </label>
-              <label class="exact-toggle"><input class="toggle toggle-primary toggle-sm" id="exactPhrase" type="checkbox" role="switch"><span><strong>Exact phrase</strong><small>Match words in their exact order</small></span></label>
-            </div>
-          </details>
+    <div class="examples" id="suggestions" aria-label="Suggested searches"><span>Try</span><button type="button" data-query="crying">Crying</button><button type="button" data-query="side eye">Side eye</button><button type="button" data-query="screaming">Screaming</button><button type="button" data-query="Wendy Williams">Wendy Williams</button><button type="button" data-query="Nicki Minaj">Nicki Minaj</button><button type="button" data-query="Gaga">Gaga</button></div>
 
-          <div class="query-bar"><div class="query-info"><span class="query-label">X search query</span><code id="queryPreview" aria-live="polite"></code></div><button type="button" class="btn btn-ghost btn-sm copy-button" id="copySearch" aria-label="Copy X search link" title="Copy X search link">Copy link ↗</button></div>
-          <p id="formMessage" class="form-message" role="status" aria-live="polite"></p>
-        </form>
-      </section>
+    <details class="secondary-section" id="recentDetails" hidden><summary>Recent searches <span aria-hidden="true">⌄</span></summary><p id="recentEmpty" class="microcopy">Your recent searches appear here. Saved only on this device.</p><div class="recent-list" id="recentList"></div><button type="button" class="edit-link" id="clearRecent" hidden>Clear history</button></details>
 
-      <aside class="sidebar" aria-label="Search shortcuts">
-        <section class="card bg-base-100 shadow-sm panel suggestions" aria-labelledby="suggestions-title">
-          <div class="aside-head"><span class="aside-icon sparkle-icon" aria-hidden="true">✳</span><h2 id="suggestions-title">Need some inspiration?</h2></div>
-          <p>Some classics to get you started.</p>
-          <div class="suggestion-list" id="suggestions">
-            <button type="button" data-query="crying">Crying <span>↗</span></button>
-            <button type="button" data-query="side eye">Side eye <span>↗</span></button>
-            <button type="button" data-query="screaming">Screaming <span>↗</span></button>
-            <button type="button" data-query="Wendy Williams">Wendy Williams <span>↗</span></button>
-            <button type="button" data-query="Nicki Minaj">Nicki Minaj <span>↗</span></button>
-            <button type="button" data-query="Gaga">Lady Gaga <span>↗</span></button>
-          </div>
-        </section>
-        <section class="card bg-base-100 shadow-sm panel recent" aria-labelledby="recent-title">
-          <div class="aside-head"><span class="aside-icon history-icon" aria-hidden="true">↶</span><h2 id="recent-title">Recent searches</h2></div>
-          <p id="recentEmpty">Your recent searches will show up here. Only saved on this device.</p>
-          <div id="recentList" class="recent-list"></div>
-          <button type="button" class="btn btn-ghost btn-sm text-button clear-history" id="clearRecent" hidden>Clear history</button>
-        </section>
-        <div class="sidebar-note"><span aria-hidden="true">↗</span><p><strong>Heads up:</strong> Searches open on X in a new tab. You'll need to be signed in to view results.</p></div>
-      </aside>
-    </div>
-
-    <section class="fallback card bg-base-100 shadow-sm panel" id="searchResults" hidden aria-live="polite" aria-labelledby="fallback-title">
-      <div class="fallback-head"><div><p class="kicker">YOUR SEARCH IS READY</p><h2 id="fallback-title">Didn't find it? Try another route.</h2><p>X sometimes struggles with longer searches. Search smaller groups or switch tabs.</p></div><a id="fullSearchLink" href="https://x.com/search" class="btn btn-outline btn-primary btn-sm outline-cta" target="_blank" rel="noopener noreferrer">Open full search ↗</a></div>
-      <div class="fallback-links" id="batchLinks"></div>
-    </section>
-
-    <section class="how" id="how-it-works"><p class="kicker">WHY REACTIONHUB?</p><h2>Less scrolling. More reacting.</h2><div class="how-grid"><article><span>01</span><h3>Pick your corner of X</h3><p>Choose stan Twitter, Italian Twitter, K-pop or accounts you love.</p></article><article><span>02</span><h3>Describe the vibe</h3><p>A word, a name or a quote. Try video-only search for less noise.</p></article><article><span>03</span><h3>Find the moment</h3><p>Jump straight to X, with smaller searches ready if needed.</p></article></div></section>
+    <section class="search-results" id="searchResults" hidden aria-labelledby="fallback-title"><h2 id="fallback-title">Not finding it on X?</h2><p>Try a smaller group of accounts or a different results tab.</p><div class="fallback-links" id="batchLinks"></div><a class="full-search" href="https://x.com/search" id="fullSearchLink" target="_blank" rel="noopener noreferrer">Open original search ↗</a></section>
   </main>
-  <footer class="site-footer shell"><span>reactionhub<span class="brand-dot">.</span></span><p>Made for the culture. Not affiliated with X.</p><a href="https://github.com/Emahhh/ReactionHub" target="_blank" rel="noopener noreferrer">Open source on GitHub ↗</a></footer>
 
-  <dialog class="modal" id="customDialog" aria-labelledby="dialogTitle"><div class="dialog-heading"><div><p class="kicker">PERSONALIZE YOUR SOURCES</p><h2 id="dialogTitle">My reaction accounts</h2></div><button type="button" class="btn btn-circle btn-ghost btn-sm dialog-close" id="closeDialog" aria-label="Close">×</button></div><p>Add X usernames you want to search. One per line, or separated by commas. No login needed here.</p><label for="customAccounts">X usernames</label><textarea class="textarea textarea-bordered" id="customAccounts" rows="7" spellcheck="false" placeholder="@reaction_account\n@your_favorite_archive"></textarea><p class="hint">Up to 60 unique usernames. Stored only in your browser.</p><p class="form-message" id="customMessage" role="status"></p><div class="dialog-actions"><button type="button" class="btn btn-outline" id="cancelCustom">Cancel</button><button type="button" class="btn btn-primary" id="saveCustom">Save accounts</button></div></dialog>
+  <footer class="layout footer"><span>ReactionHub is not affiliated with X.</span><span>Find the moment.</span></footer>
+
+  <dialog class="modal" id="customDialog" aria-labelledby="dialogTitle">
+    <div class="modal-box custom-dialog">
+      <div class="modal-top"><h2 id="dialogTitle">My accounts</h2><button class="btn btn-ghost btn-circle btn-sm" type="button" id="closeDialog" aria-label="Close dialog">✕</button></div>
+      <p class="dialog-desc">Add X accounts to search. One username per line or separated by commas.</p>
+      <label class="sr-only" for="customAccounts">X usernames</label>
+      <textarea class="textarea textarea-bordered" id="customAccounts" rows="7" spellcheck="false" placeholder="@favorite_reactions&#10;@another_account"></textarea>
+      <p class="microcopy">Up to 60 accounts. Saved only in this browser.</p>
+      <p id="customMessage" class="form-message" role="status"></p>
+      <div class="dialog-actions"><button class="btn btn-ghost" type="button" id="cancelCustom">Cancel</button><button class="btn btn-primary" type="button" id="saveCustom">Save accounts</button></div>
+    </div>
+    <form method="dialog" class="modal-backdrop"><button aria-label="Close dialog">Close</button></form>
+  </dialog>
 </body>
 </html>

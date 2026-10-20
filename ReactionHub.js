@@ -121,6 +121,7 @@ if (typeof document !== "undefined") {
   function renderRecent() {
     const wrap = $("recentList");
     wrap.replaceChildren();
+    $("recentDetails").hidden = !state.recent.length;
     $("recentEmpty").hidden = Boolean(state.recent.length);
     $("clearRecent").hidden = !state.recent.length;
     for (const item of state.recent) {
