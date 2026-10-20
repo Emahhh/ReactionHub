@@ -1,14 +1,10 @@
-/* ReactionHub: Pico CSS + a small, distinct design layer. No CSS build step. */
+/* ReactionHub: daisyUI 5 and a lightweight custom visual layer. */
 :root {
   color-scheme: light;
-  --pico-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, system-ui, sans-serif;
-  --pico-font-size: 15px;
-  --pico-primary: #6847df;
-  --pico-primary-background: #6847df;
-  --pico-primary-hover-background: #5535c6;
-  --pico-primary-border: #6847df;
-  --pico-form-element-focus-color: rgba(104, 71, 223, .18);
-  --pico-border-radius: 12px;
+  --color-primary: #6847df;
+  --color-primary-content: #fff;
+  --radius-box: 1.25rem;
+  --radius-field: .75rem;
   --ink: #1e1b2d;
   --muted: #716c7d;
   --line: #e9e6f0;
@@ -248,6 +244,18 @@ dialog textarea { margin: 8px 0 0; resize: vertical; font-size: 13px; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition-duration: 0s !important; } }
 
 /* Prevent long X search expressions from setting a grid's intrinsic width. */
-body { font-family: var(--pico-font-family); }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, system-ui, sans-serif; }
 .workspace > *, .search-panel, .search-panel form, .sidebar { min-width: 0; }
 @media (max-width: 730px) { .workspace { grid-template-columns: minmax(0, 1fr); } }
+
+/* daisyUI primitives; no Tailwind browser compiler. */
+.btn { text-transform: none; }
+.btn-primary { --btn-color: #6847df; --btn-fg: #fff; }
+.search-control > .input { border: 0; background: transparent; outline: 0; min-height: 0; height: auto; }
+.option-grid .select { width: 100%; background-color: #fff; }
+.dialog-actions .btn { min-height: 38px; }
+#customDialog.modal[open] { display: block; position: fixed; margin: auto; }
+#customAccounts.textarea { width: 100%; box-sizing: border-box; }
+.source-icon.badge { border: none; }
+.search-submit.btn { min-height: 43px; }
+.copy-button.btn, .text-button.btn { min-height: 30px; height: auto; }
