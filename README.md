@@ -15,7 +15,7 @@ ReactionHub constructs X search URLs; it **does not scrape X, fetch results or s
 
 ## Technical approach
 
-Plain `index.html`, `ReactionHub.js` and `style.css`, plus the CSS-only [Pico CSS 2.1.1](https://picocss.com/) stylesheet loaded from jsDelivr. **No Bootstrap, no JavaScript framework, no npm dependencies or build step.** State is saved to `localStorage` (with a safe fallback where storage is blocked).
+Plain `index.html`, `ReactionHub.js` and `style.css`, plus the CSS-only [daisyUI 5](https://daisyui.com/) stylesheet loaded from jsDelivr. **No Bootstrap, no Tailwind browser compiler, no JavaScript framework, no npm dependencies or build step.** State is saved to `localStorage` (with a safe fallback where storage is blocked).
 
 Serve the project as static files, or open `index.html` in a browser. To run helper tests:
 
