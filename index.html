@@ -112,6 +112,20 @@
           <i class="bi bi-search"></i>
         </button>
       </div>
+      <div class="mt-3 d-flex flex-wrap gap-3 align-items-center">
+        <label class="form-check-label"><input class="form-check-input me-1" type="checkbox" id="exactPhraseCheckbox" /> Exact phrase</label>
+        <label for="mediaFilter">Media:</label>
+        <select id="mediaFilter" class="form-select form-select-sm w-auto">
+          <option value="media">Photos & videos</option>
+          <option value="videos">Videos only</option>
+        </select>
+        <label for="resultsView">Results:</label>
+        <select id="resultsView" class="form-select form-select-sm w-auto">
+          <option value="media">Media tab</option>
+          <option value="live">Latest tab</option>
+        </select>
+      </div>
+      <div id="searchLinks" class="rounded-3 shadow mycard mt-3 p-3" hidden aria-live="polite"></div>
       <br /><br />
 
       <div class="rounded-3 shadow mycard">
@@ -177,7 +191,7 @@
             from these accounts. For better results use very simple keywords,
             better if just one.
             <br />
-            Tip: leave the search bar empty to see what's trending.
+            Tip: leave the search bar empty to browse videos from the chosen accounts. If X shows no results, try the smaller search links shown after searching.
             <br />
             
          
