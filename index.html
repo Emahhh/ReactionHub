@@ -11,7 +11,7 @@
   <title>ReactionHub — Find the perfect reaction</title>
   <link rel="icon" href="img/iphone-icon.png">
   <link rel="apple-touch-icon" href="img/iphone-icon.png">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2.1.1/css/pico.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daisyui@5">
   <link rel="stylesheet" href="style.css">
   <script src="ReactionHub.js" defer></script>
 </head>
@@ -46,7 +46,7 @@
     </section>
 
     <div class="workspace" id="search">
-      <section class="panel search-panel" aria-labelledby="search-title">
+      <section class="card bg-base-100 shadow-sm panel search-panel" aria-labelledby="search-title">
         <div class="section-head">
           <div><p class="kicker">YOUR SEARCH</p><h2 id="search-title">What are we looking for?</h2></div>
           <span class="step-bubble" aria-hidden="true">01 / 02</span>
@@ -57,44 +57,44 @@
           <label for="typed" class="field-label">Describe the reaction</label>
           <div class="search-control">
             <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
-            <input id="typed" type="search" autocomplete="off" placeholder="crying, Wendy Williams, side eye…" aria-describedby="searchHint">
-            <button type="submit" class="search-submit">Search on X <span aria-hidden="true">↗</span></button>
+            <input class="input" id="typed" type="search" autocomplete="off" placeholder="crying, Wendy Williams, side eye…" aria-describedby="searchHint">
+            <button type="submit" class="btn btn-primary search-submit">Search on X <span aria-hidden="true">↗</span></button>
           </div>
           <p class="hint" id="searchHint">Keep it simple for better results. An empty search browses your selected accounts.</p>
           <div class="content-divider"></div>
           <div class="source-header">
             <div><h3>Search within</h3><p>Pick one or more collections of reaction accounts.</p></div>
-            <button type="button" class="text-button" id="editAccounts">Edit custom list <span aria-hidden="true">↗</span></button>
+            <button type="button" class="btn btn-ghost btn-sm text-button" id="editAccounts">Edit custom list <span aria-hidden="true">↗</span></button>
           </div>
           <div class="source-grid" id="sourceGrid" role="group" aria-label="Account collections">
-            <label class="source-card"><input type="checkbox" data-source="stan" checked><span class="source-icon stan-icon" aria-hidden="true">✦</span><span class="source-text"><strong>Stan Twitter</strong><small id="stanCount">Reaction classics</small></span><span class="source-tick" aria-hidden="true">✓</span></label>
-            <label class="source-card"><input type="checkbox" data-source="italian"><span class="source-icon italy-icon" aria-hidden="true">IT</span><span class="source-text"><strong>Italian Twitter</strong><small id="italianCount">Italian reactions</small></span><span class="source-tick" aria-hidden="true">✓</span></label>
-            <label class="source-card"><input type="checkbox" data-source="kpop"><span class="source-icon kpop-icon" aria-hidden="true">♫</span><span class="source-text"><strong>K-pop</strong><small id="kpopCount">Fancams &amp; more</small></span><span class="source-tick" aria-hidden="true">✓</span></label>
-            <label class="source-card"><input type="checkbox" data-source="custom" id="customSource"><span class="source-icon custom-icon" aria-hidden="true">＋</span><span class="source-text"><strong>My accounts</strong><small id="customCount">Add your own</small></span><span class="source-tick" aria-hidden="true">✓</span></label>
+            <label class="source-card"><input type="checkbox" data-source="stan" checked><span class="badge badge-lg source-icon stan-icon" aria-hidden="true">✦</span><span class="source-text"><strong>Stan Twitter</strong><small id="stanCount">Reaction classics</small></span><span class="source-tick" aria-hidden="true">✓</span></label>
+            <label class="source-card"><input type="checkbox" data-source="italian"><span class="badge badge-lg source-icon italy-icon" aria-hidden="true">IT</span><span class="source-text"><strong>Italian Twitter</strong><small id="italianCount">Italian reactions</small></span><span class="source-tick" aria-hidden="true">✓</span></label>
+            <label class="source-card"><input type="checkbox" data-source="kpop"><span class="badge badge-lg source-icon kpop-icon" aria-hidden="true">♫</span><span class="source-text"><strong>K-pop</strong><small id="kpopCount">Fancams &amp; more</small></span><span class="source-tick" aria-hidden="true">✓</span></label>
+            <label class="source-card"><input type="checkbox" data-source="custom" id="customSource"><span class="badge badge-lg source-icon custom-icon" aria-hidden="true">＋</span><span class="source-text"><strong>My accounts</strong><small id="customCount">Add your own</small></span><span class="source-tick" aria-hidden="true">✓</span></label>
           </div>
-          <label class="all-x-toggle"><input id="searchAll" type="checkbox" role="switch"><span>Search all of X instead</span><small>Ignore collections</small></label>
+          <label class="all-x-toggle"><input class="toggle toggle-primary toggle-sm" id="searchAll" type="checkbox" role="switch"><span>Search all of X instead</span><small>Ignore collections</small></label>
           <p class="account-summary" id="sourceSummary" aria-live="polite"></p>
 
           <details class="advanced">
             <summary><span><span class="settings-symbol" aria-hidden="true">☷</span> Search options</span><span class="option-summary" id="optionSummary">All media · Media tab</span></summary>
             <div class="option-grid">
               <label>Media type
-                <select id="mediaFilter"><option value="media">Photos &amp; videos</option><option value="videos">Videos only</option><option value="images">Images only</option></select>
+                <select class="select select-bordered" id="mediaFilter"><option value="media">Photos &amp; videos</option><option value="videos">Videos only</option><option value="images">Images only</option></select>
               </label>
               <label>Results tab
-                <select id="resultsView"><option value="media">Media</option><option value="live">Latest</option><option value="top">Top</option></select>
+                <select class="select select-bordered" id="resultsView"><option value="media">Media</option><option value="live">Latest</option><option value="top">Top</option></select>
               </label>
-              <label class="exact-toggle"><input id="exactPhrase" type="checkbox" role="switch"><span><strong>Exact phrase</strong><small>Match words in their exact order</small></span></label>
+              <label class="exact-toggle"><input class="toggle toggle-primary toggle-sm" id="exactPhrase" type="checkbox" role="switch"><span><strong>Exact phrase</strong><small>Match words in their exact order</small></span></label>
             </div>
           </details>
 
-          <div class="query-bar"><div class="query-info"><span class="query-label">X search query</span><code id="queryPreview" aria-live="polite"></code></div><button type="button" class="copy-button" id="copySearch" aria-label="Copy X search link" title="Copy X search link">Copy link ↗</button></div>
+          <div class="query-bar"><div class="query-info"><span class="query-label">X search query</span><code id="queryPreview" aria-live="polite"></code></div><button type="button" class="btn btn-ghost btn-sm copy-button" id="copySearch" aria-label="Copy X search link" title="Copy X search link">Copy link ↗</button></div>
           <p id="formMessage" class="form-message" role="status" aria-live="polite"></p>
         </form>
       </section>
 
       <aside class="sidebar" aria-label="Search shortcuts">
-        <section class="panel suggestions" aria-labelledby="suggestions-title">
+        <section class="card bg-base-100 shadow-sm panel suggestions" aria-labelledby="suggestions-title">
           <div class="aside-head"><span class="aside-icon sparkle-icon" aria-hidden="true">✳</span><h2 id="suggestions-title">Need some inspiration?</h2></div>
           <p>Some classics to get you started.</p>
           <div class="suggestion-list" id="suggestions">
@@ -106,18 +106,18 @@
             <button type="button" data-query="Gaga">Lady Gaga <span>↗</span></button>
           </div>
         </section>
-        <section class="panel recent" aria-labelledby="recent-title">
+        <section class="card bg-base-100 shadow-sm panel recent" aria-labelledby="recent-title">
           <div class="aside-head"><span class="aside-icon history-icon" aria-hidden="true">↶</span><h2 id="recent-title">Recent searches</h2></div>
           <p id="recentEmpty">Your recent searches will show up here. Only saved on this device.</p>
           <div id="recentList" class="recent-list"></div>
-          <button type="button" class="text-button clear-history" id="clearRecent" hidden>Clear history</button>
+          <button type="button" class="btn btn-ghost btn-sm text-button clear-history" id="clearRecent" hidden>Clear history</button>
         </section>
         <div class="sidebar-note"><span aria-hidden="true">↗</span><p><strong>Heads up:</strong> Searches open on X in a new tab. You'll need to be signed in to view results.</p></div>
       </aside>
     </div>
 
-    <section class="fallback panel" id="searchResults" hidden aria-live="polite" aria-labelledby="fallback-title">
-      <div class="fallback-head"><div><p class="kicker">YOUR SEARCH IS READY</p><h2 id="fallback-title">Didn't find it? Try another route.</h2><p>X sometimes struggles with longer searches. Search smaller groups or switch tabs.</p></div><a id="fullSearchLink" href="https://x.com/search" class="outline-cta" target="_blank" rel="noopener noreferrer">Open full search ↗</a></div>
+    <section class="fallback card bg-base-100 shadow-sm panel" id="searchResults" hidden aria-live="polite" aria-labelledby="fallback-title">
+      <div class="fallback-head"><div><p class="kicker">YOUR SEARCH IS READY</p><h2 id="fallback-title">Didn't find it? Try another route.</h2><p>X sometimes struggles with longer searches. Search smaller groups or switch tabs.</p></div><a id="fullSearchLink" href="https://x.com/search" class="btn btn-outline btn-primary btn-sm outline-cta" target="_blank" rel="noopener noreferrer">Open full search ↗</a></div>
       <div class="fallback-links" id="batchLinks"></div>
     </section>
 
@@ -125,6 +125,6 @@
   </main>
   <footer class="site-footer shell"><span>reactionhub<span class="brand-dot">.</span></span><p>Made for the culture. Not affiliated with X.</p><a href="https://github.com/Emahhh/ReactionHub" target="_blank" rel="noopener noreferrer">Open source on GitHub ↗</a></footer>
 
-  <dialog id="customDialog" aria-labelledby="dialogTitle"><div class="dialog-heading"><div><p class="kicker">PERSONALIZE YOUR SOURCES</p><h2 id="dialogTitle">My reaction accounts</h2></div><button type="button" class="dialog-close" id="closeDialog" aria-label="Close">×</button></div><p>Add X usernames you want to search. One per line, or separated by commas. No login needed here.</p><label for="customAccounts">X usernames</label><textarea id="customAccounts" rows="7" spellcheck="false" placeholder="@reaction_account\n@your_favorite_archive"></textarea><p class="hint">Up to 60 unique usernames. Stored only in your browser.</p><p class="form-message" id="customMessage" role="status"></p><div class="dialog-actions"><button type="button" class="secondary outline" id="cancelCustom">Cancel</button><button type="button" id="saveCustom">Save accounts</button></div></dialog>
+  <dialog class="modal" id="customDialog" aria-labelledby="dialogTitle"><div class="dialog-heading"><div><p class="kicker">PERSONALIZE YOUR SOURCES</p><h2 id="dialogTitle">My reaction accounts</h2></div><button type="button" class="btn btn-circle btn-ghost btn-sm dialog-close" id="closeDialog" aria-label="Close">×</button></div><p>Add X usernames you want to search. One per line, or separated by commas. No login needed here.</p><label for="customAccounts">X usernames</label><textarea class="textarea textarea-bordered" id="customAccounts" rows="7" spellcheck="false" placeholder="@reaction_account\n@your_favorite_archive"></textarea><p class="hint">Up to 60 unique usernames. Stored only in your browser.</p><p class="form-message" id="customMessage" role="status"></p><div class="dialog-actions"><button type="button" class="btn btn-outline" id="cancelCustom">Cancel</button><button type="button" class="btn btn-primary" id="saveCustom">Save accounts</button></div></dialog>
 </body>
 </html>
