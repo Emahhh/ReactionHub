@@ -1,26 +1,24 @@
 # ReactionHub
 
-A lightweight, search-first website for finding reaction videos on [X](https://x.com). [Open the live site](https://emahhh.github.io/ReactionHub/).
+A minimal search tool for reaction videos on [X](https://x.com). [Open ReactionHub](https://emahhh.github.io/ReactionHub/).
 
-## What it does
+Choose a collection, type a phrase and search. The default screen has only one search field and four collection filters. Advanced search controls (media, results tab, exact phrases and all-X search), custom accounts, and fallback links remain available without dominating the interface.
 
-- Search curated **Stan Twitter**, **Italian Twitter**, and **K-pop** accounts, individually or together.
-- Add up to 60 **personal X accounts**, saved only in your browser.
-- Search photos and videos, videos only, or images only, with an optional exact phrase.
-- Switch between X's Media, Latest and Top tabs.
-- Re-run recent searches or copy a search URL.
-- If a large search yields no results, try groups of five accounts using the links shown after submitting.
+- Curated **Stan Twitter**, **Italian**, and **K-pop** reaction accounts.
+- Your own X accounts (stored locally in your browser, up to 60).
+- Optional **videos only**, **images only**, **exact phrase**, and **Latest/Top/Media** results.
+- Recent searches (shown only after the first search), copyable X search links, and smaller search batches when X struggles with long queries.
 
-ReactionHub constructs X search URLs; it **does not scrape X, fetch results or store video files**. You generally need to be signed in to X to see results. X may change its search behavior independently of this website.
+ReactionHub only opens X search URLs. It does not fetch or host X posts. Sign in to X to view its results; search availability depends on X.
 
-## Technical approach
+## Stack
 
-Plain `index.html`, `ReactionHub.js` and `style.css`, plus the CSS-only [daisyUI 5](https://daisyui.com/) stylesheet loaded from jsDelivr. **No Bootstrap, no Tailwind browser compiler, no JavaScript framework, no npm dependencies or build step.** State is saved to `localStorage` (with a safe fallback where storage is blocked).
+Static **HTML + vanilla JavaScript + daisyUI 5 CSS** with a small stylesheet for layout. No Bootstrap, React, build step or npm dependencies. Works on GitHub Pages.
 
-Serve the project as static files, or open `index.html` in a browser. To run helper tests:
+Run search helper tests with:
 
 ```sh
 node --test tests/search.test.js
 ```
 
-Source lists are at the top of `ReactionHub.js`. They are maintained manually, and some X handles may be inactive or renamed.
+Source lists can be edited at the top of `ReactionHub.js`. Some handles may be inactive or renamed.
