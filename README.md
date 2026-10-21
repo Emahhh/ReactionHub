@@ -1,24 +1,38 @@
 # ReactionHub
 
-A minimal search tool for reaction videos on [X](https://x.com). [Open ReactionHub](https://emahhh.github.io/ReactionHub/).
+**Find reaction videos on X (formerly Twitter).**
 
-Choose a collection, type a phrase and search. The default screen has only one search field and four collection filters. Advanced search controls (media, results tab, exact phrases and all-X search), custom accounts, and fallback links remain available without dominating the interface.
+Live site: https://emahhh.github.io/ReactionHub/
 
-- Curated **Stan Twitter**, **Italian**, and **K-pop** reaction accounts.
-- Your own X accounts (stored locally in your browser, up to 60).
-- Optional **videos only**, **images only**, **exact phrase**, and **Latest/Top/Media** results.
-- Recent searches (shown only after the first search), copyable X search links, and smaller search batches when X struggles with long queries.
+A minimalist search tool for browsing curated stan Twitter, Italian and K-pop reaction video accounts, with support for adding your own X accounts. Built by [emanuele.click](https://emanuele.click/).
 
-ReactionHub only opens X search URLs. It does not fetch or host X posts. Sign in to X to view its results; search availability depends on X.
+## How it works
 
-## Stack
+1. Enter a phrase or leave it blank to browse a collection.
+2. Select one or more account collections (the custom list is saved locally).
+3. Search opens a query on X in a new tab, with the `filter:videos` operator.
 
-Static **HTML + vanilla JavaScript + daisyUI 5 CSS** with a small stylesheet for layout. No Bootstrap, React, build step or npm dependencies. Works on GitHub Pages.
+ReactionHub does **not** scrape, store, or serve X content. You may need an X login, and X can limit or change search results independently of ReactionHub. Shorter queries and smaller collections may work better when X shows no results.
 
-Run search helper tests with:
+## SEO and sharing
+
+- Crawlable, static English headline, description and useful visible FAQ (no JavaScript rendering required for indexable text).
+- Canonical URL points to the current GitHub Pages project site.
+- Open Graph and X/Twitter `summary_large_image` tags reference an original 1200×630 PNG (`og-image.png`).
+- `WebSite` and `WebApplication` JSON-LD describe the actual app and its creator; no misleading `SearchAction` or FAQ rich-result claims.
+- `sitemap.xml` exposes the canonical page for Search Console submission.
+- Lightweight, accessible daisyUI 5 plus a small stylesheet; no font downloads, analytics, bundler or JavaScript framework.
+
+**GitHub Pages caveat:** Google's preferred *site name* is determined at a domain/subdomain level, not at a `/ReactionHub/` subpath. `WebSite` markup is valid context about this app, but cannot force Google to display "ReactionHub" as the `github.io` site name. A dedicated custom domain is needed for that level of brand control. Similarly, `robots.txt` at `/ReactionHub/robots.txt` would not function as the host-root robots file; none is added here. Search visibility and rich results are never guaranteed.
+
+After merging and publishing, submit `https://emahhh.github.io/ReactionHub/sitemap.xml` in Google Search Console, inspect the canonical URL, and verify the OG preview with a live social card debugger. Metadata should be checked after GitHub Pages deploys, not before.
+
+## Development
+
+Static HTML/CSS/vanilla JavaScript, with daisyUI 5 from a CSS-only CDN. No build step required.
 
 ```sh
-node --test tests/search.test.js
+node --test tests/*.test.js
 ```
 
-Source lists can be edited at the top of `ReactionHub.js`. Some handles may be inactive or renamed.
+Curated account usernames live at the top of `ReactionHub.js`. They may need occasional review as accounts get renamed or removed.
