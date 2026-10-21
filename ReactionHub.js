@@ -66,6 +66,8 @@ if (typeof document !== "undefined") {
     dialog.showModal();
   }
 
+  $("focusSearch").addEventListener("click", () => input.focus());
+
   boxes.forEach(box => box.addEventListener("change", () => {
     state.selected = boxes.filter(b => b.checked).map(b => b.dataset.source);
     persist();
@@ -109,14 +111,43 @@ if (typeof document !== "undefined") {
   });
   input.addEventListener("input", () => { $("formMessage").textContent = ""; });
 
+  const examples = ["Crying...", "Side eye...", "Lady Gaga...", "Wendy Williams...", "Nicki Minaj laughing...", "K-pop fancam...", "Screaming..."];
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    let exampleIndex = 0;
+    let letters = 0;
+    let deleting = false;
+    function animatePlaceholder() {
+      if (document.hidden || document.activeElement === input || input.value) {
+        window.setTimeout(animatePlaceholder, 650);
+        return;
+      }
+      const phrase = examples[exampleIndex];
+      input.placeholder = phrase.slice(0, letters) + (letters < phrase.length ? "|" : "");
+      let delay = 75;
+      if (!deleting) {
+        if (letters < phrase.length) letters++;
+        else { deleting = true; delay = 1450; }
+      } else if (letters > 0) {
+        letters--;
+        delay = 36;
+      } else {
+        deleting = false;
+        exampleIndex = (exampleIndex + 1) % examples.length;
+        delay = 380;
+      }
+      window.setTimeout(animatePlaceholder, delay);
+    }
+    window.setTimeout(animatePlaceholder, 650);
+  }
+
   const heroPreview = $("heroReactionPreview");
   const reactionClips = [
-    "img/reactions/reaction-01.mp4",
-    "img/reactions/reaction-02.mp4",
-    "img/reactions/reaction-03.mp4",
     "img/reactions/reaction-04.mp4",
     "img/reactions/reaction-05.mp4",
-    "img/reactions/reaction-06.mp4"
+    "img/reactions/reaction-06.mp4",
+    "img/reactions/reaction-02.mp4",
+    "img/reactions/reaction-03.mp4",
+    "img/reactions/reaction-01.mp4"
   ];
   if (heroPreview && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     let clipIndex = 0;
@@ -132,29 +163,6 @@ if (typeof document !== "undefined") {
       clipIndex = (clipIndex + 1) % reactionClips.length;
       playHeroClip();
     }, 5000);
-  }
-
-  // Restore the original typed placeholder without a Typed.js dependency.
-  // It does not change the value, and pauses whenever the user interacts.
-  const examples = ["Crying...", "Side eye...", "Lady Gaga...", "Wendy Williams...", "Nicki Minaj laughing...", "K-pop fancam...", "Screaming..."];
-  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    let index = 0, letters = 0, deleting = false;
-    function tick() {
-      if (document.hidden || document.activeElement === input || input.value) {
-        window.setTimeout(tick, 650);
-        return;
-      }
-      const phrase = examples[index];
-      input.placeholder = phrase.slice(0, letters) + (letters < phrase.length ? "|" : "");
-      let delay = 75;
-      if (!deleting) {
-        if (letters < phrase.length) letters++;
-        else { deleting = true; delay = 1450; }
-      } else if (letters > 0) { letters--; delay = 36; }
-      else { deleting = false; index = (index + 1) % examples.length; delay = 380; }
-      window.setTimeout(tick, delay);
-    }
-    window.setTimeout(tick, 650);
   }
 
   // Pre-populate the search box from shared links, without modifying SEO metadata.

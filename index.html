@@ -70,69 +70,66 @@
         <span>reactionhub<span class="brand-dot">.</span></span>
       </a>
       <nav class="header-nav" aria-label="Main navigation">
-        <a href="#faq">How it works</a>
+        <button class="focus-search" id="focusSearch" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg><span>Search</span></button>
       </nav>
     </header>
     <main>
       <section class="hero-layout" aria-labelledby="page-title">
-        <div class="hero-copy">
-          <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> Reaction video search for X</p>
-          <h1 id="page-title">Find your <span class="highlight">reaction video</span> on X<span class="brand-dot">.</span></h1>
-          <p class="subtitle">The right reaction, without the endless scrolling. Search curated video accounts on X (formerly Twitter).</p>
+        <div class="hero-intro">
+          <div class="hero-copy">
+            <h1 id="page-title">Find your<br><em>reaction.</em></h1>
+            <p class="subtitle">Search reaction videos from curated accounts on X.</p>
+          </div>
           <div class="reaction-teaser" aria-hidden="true"><video id="heroReactionPreview" muted playsinline loop preload="none" poster="img/reactions/poster.jpg"></video></div>
-          <div class="trust-note"><span class="trust-icon" aria-hidden="true">✦</span> Free to use <span class="trust-separator" aria-hidden="true">·</span> No ReactionHub account needed</div>
         </div>
         <div class="search-panel">
-          <div class="panel-heading">
-            <div><p class="panel-kicker">SEARCH CURATED VIDEO ACCOUNTS</p><h2>What are you looking for?</h2></div>
-            <span class="panel-icon" aria-hidden="true">⌕</span>
-          </div>
           <form id="searchForm" action="https://x.com/search" method="get" target="_blank" autocomplete="off" novalidate>
           <input name="q" id="searchQueryParam" type="hidden">
           <input name="f" id="searchTabParam" type="hidden" value="media">
           <label class="sr-only" for="typed">Search for reaction videos on X (Twitter)</label>
           <div class="search-box">
             <svg class="search-icon" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="10.9" cy="10.9" r="7.6"/><path d="m16.5 16.5 5 5"/></svg>
-            <input id="typed" class="input" type="search" maxlength="200" placeholder="Crying, side eye, Lady Gaga..." aria-describedby="searchHint">
+            <input id="typed" class="input" type="search" maxlength="200" placeholder="A mood, a name, a quote…" aria-describedby="searchHint">
             <button class="btn btn-primary search-button" type="submit">Search <span aria-hidden="true">↗</span></button>
           </div>
           <p class="sr-only" id="searchHint">Search by keyword, name, or quote. Leave empty to browse videos from selected accounts.</p>
           <div class="source-heading">
-            <strong id="sources-title">Choose your collections</strong>
-            <button type="button" class="edit-link" id="editAccounts">Edit my accounts <span aria-hidden="true">↗</span></button>
+            <strong id="sources-title">Search within</strong>
           </div>
           <div class="source-grid" id="sourceGrid" role="group" aria-labelledby="sources-title">
             <label class="source-chip"><input type="checkbox" data-source="stan" checked><span>Stan Twitter</span><span class="chip-check" aria-hidden="true">✓</span></label>
             <label class="source-chip"><input type="checkbox" data-source="italian"><span>Italian</span><span class="chip-check" aria-hidden="true">✓</span></label>
             <label class="source-chip"><input type="checkbox" data-source="kpop"><span>K-pop</span><span class="chip-check" aria-hidden="true">✓</span></label>
-            <label class="source-chip"><input type="checkbox" data-source="custom"><span>My accounts</span><span class="chip-check" aria-hidden="true">✓</span></label>
+            <span class="custom-source-wrap">
+              <label class="source-chip custom-source"><input type="checkbox" data-source="custom"><span>My accounts</span><span class="chip-check" aria-hidden="true">✓</span></label>
+              <button class="edit-account-icon" id="editAccounts" type="button" aria-label="Edit my accounts" title="Edit my accounts"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15.5 5.5 3 3M4 20l4.3-.9L19 8.4a2.1 2.1 0 0 0-3-3L5.3 16.1 4 20Z"/></svg></button>
+            </span>
           </div>
           <p id="formMessage" class="form-message" role="status" aria-live="polite"></p>
           </form>
-          <p class="search-note"><span aria-hidden="true">↗</span> Results open in a new tab on X</p>
         </div>
       </section>
       <section class="faq" id="faq" aria-labelledby="faq-title">
-        <h2 id="faq-title">Frequently asked questions<span class="brand-dot">.</span></h2>
+        <h2 id="faq-title">Good to know</h2>
         <details>
-          <summary>How do I find reaction videos on X (Twitter)?</summary>
-          <p>Type a keyword, name or quote, choose a collection, and press Search. ReactionHub creates a targeted X search using selected reaction video accounts. The results open on X, where you can view and share the original posts.</p>
+          <summary>How does it work?</summary>
+          <p>Enter a keyword, name or quote and choose your collections. ReactionHub opens a video search on X using those accounts. Leave the search blank to browse.</p>
         </details>
         <details>
-          <summary>Does ReactionHub still work with Twitter?</summary>
-          <p>Twitter is now called X. ReactionHub searches public posts on X using its search operators, including videos from stan Twitter, Italian and K-pop accounts. X search availability can change, and you may need to sign in to view results.</p>
+          <summary>Do I need an account?</summary>
+          <p>No ReactionHub account is needed. X (formerly Twitter) may ask you to sign in to see the results.</p>
         </details>
         <details>
-          <summary>Can I search my favorite Twitter accounts?</summary>
-          <p>Yes. Select “Edit my accounts” to save your own list of X usernames. Your accounts are saved only in this browser, and you can combine them with the curated collections.</p>
+          <summary>Can I add my own accounts?</summary>
+          <p>Yes. Use “Edit my accounts” to save X usernames in this browser, then select “My accounts” to include them in your search.</p>
         </details>
         <details>
-          <summary>Why am I getting no results on X?</summary>
-          <p>X sometimes returns few or no results for long searches. Try a shorter keyword, fewer collections, or just one account group. Make sure you are signed into X. ReactionHub doesn't control which posts X includes in its search results.</p>
+          <summary>Why am I getting no results?</summary>
+          <p>Try a shorter phrase or fewer collections, and check that you’re signed into X. Results depend on X’s search.</p>
         </details>
         <details>
           <summary>Is ReactionHub free?</summary>
-          <p>Yes. ReactionHub is a free, open-source tool made by Emanuele. It doesn't host or download videos, and you don't need a ReactionHub account. Searches are carried out on X.</p>
+          <p>Yes. It’s a small, free tool made by Emanuele. Search results live on X.</p>
         </details>
       </section>
     </main>
