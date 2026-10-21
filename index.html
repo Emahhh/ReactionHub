@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#fcfbf9">
+  <meta name="theme-color" content="#faf8f1">
   <meta name="color-scheme" content="light">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <title>Find Reaction Videos on X (Twitter) | ReactionHub</title>
@@ -66,15 +66,28 @@
   <div class="page">
     <header class="site-header">
       <a class="brand" href="./" aria-label="ReactionHub home">
-        <span class="brand-symbol" aria-hidden="true">↗</span>
+        <span class="brand-symbol" aria-hidden="true"><svg viewBox="0 0 32 32" focusable="false"><path d="M7 9.2a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v10.5a3 3 0 0 1-3 3h-5.2l-4.6 3v-3H10a3 3 0 0 1-3-3z"/><circle cx="12.5" cy="13.2" r="1.15"/><circle cx="19.1" cy="13.2" r="1.15"/><path d="M12.3 16.6c1.7 2 5.1 2 6.8 0"/></svg></span>
         <span>reactionhub<span class="brand-dot">.</span></span>
       </a>
+      <nav class="header-nav" aria-label="Main navigation">
+        <a href="#faq">How it works</a>
+      </nav>
     </header>
     <main>
-      <section class="hero" aria-labelledby="page-title">
-        <h1 id="page-title">Find your <span class="highlight">reaction video</span> on X<span class="brand-dot">.</span></h1>
-        <p class="subtitle">The right reaction, without the endless scrolling.<br>Search curated video accounts on X (formerly Twitter).</p>
-        <form id="searchForm" action="https://x.com/search" method="get" target="_blank" autocomplete="off" novalidate>
+      <section class="hero-layout" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> Reaction video search for X</p>
+          <h1 id="page-title">Find your <span class="highlight">reaction video</span> on X<span class="brand-dot">.</span></h1>
+          <p class="subtitle">The right reaction, without the endless scrolling. Search curated video accounts on X (formerly Twitter).</p>
+          <div class="reaction-teaser" aria-hidden="true"><video id="heroReactionPreview" muted playsinline loop preload="none" poster="img/reactions/poster.jpg"></video></div>
+          <div class="trust-note"><span class="trust-icon" aria-hidden="true">✦</span> Free to use <span class="trust-separator" aria-hidden="true">·</span> No ReactionHub account needed</div>
+        </div>
+        <div class="search-panel">
+          <div class="panel-heading">
+            <div><p class="panel-kicker">SEARCH CURATED VIDEO ACCOUNTS</p><h2>What are you looking for?</h2></div>
+            <span class="panel-icon" aria-hidden="true">⌕</span>
+          </div>
+          <form id="searchForm" action="https://x.com/search" method="get" target="_blank" autocomplete="off" novalidate>
           <input name="q" id="searchQueryParam" type="hidden">
           <input name="f" id="searchTabParam" type="hidden" value="media">
           <label class="sr-only" for="typed">Search for reaction videos on X (Twitter)</label>
@@ -85,7 +98,7 @@
           </div>
           <p class="sr-only" id="searchHint">Search by keyword, name, or quote. Leave empty to browse videos from selected accounts.</p>
           <div class="source-heading">
-            <strong id="sources-title">Search within</strong>
+            <strong id="sources-title">Choose your collections</strong>
             <button type="button" class="edit-link" id="editAccounts">Edit my accounts <span aria-hidden="true">↗</span></button>
           </div>
           <div class="source-grid" id="sourceGrid" role="group" aria-labelledby="sources-title">
@@ -95,9 +108,11 @@
             <label class="source-chip"><input type="checkbox" data-source="custom"><span>My accounts</span><span class="chip-check" aria-hidden="true">✓</span></label>
           </div>
           <p id="formMessage" class="form-message" role="status" aria-live="polite"></p>
-        </form>
+          </form>
+          <p class="search-note"><span aria-hidden="true">↗</span> Results open in a new tab on X</p>
+        </div>
       </section>
-      <section class="faq" aria-labelledby="faq-title">
+      <section class="faq" id="faq" aria-labelledby="faq-title">
         <h2 id="faq-title">Frequently asked questions<span class="brand-dot">.</span></h2>
         <details>
           <summary>How do I find reaction videos on X (Twitter)?</summary>

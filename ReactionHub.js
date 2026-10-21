@@ -36,12 +36,11 @@ function createURL(query, view = "media") {
 
 if (typeof document !== "undefined") {
   const $ = id => document.getElementById(id);
-  const sourceKeys = Object.keys(COLLECTIONS).concat("custom");
   let saved = {};
   try { saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}"); } catch { /* Storage is optional. */ }
 
   const state = {
-    selected: Array.isArray(saved.selected) ? saved.selected.filter(key => sourceKeys.includes(key)) : ["stan"],
+    selected: ["stan"],
     custom: normalizeAccounts(Array.isArray(saved.custom) ? saved.custom : []).slice(0, MAX_CUSTOM)
   };
   const boxes = [...document.querySelectorAll("[data-source]")];
@@ -49,7 +48,7 @@ if (typeof document !== "undefined") {
   const input = $("typed");
 
   function persist() {
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch { /* Continue without persistence. */ }
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify({ custom: state.custom })); } catch { /* Continue without persistence. */ }
   }
 
   function selectedAccounts() {
@@ -109,6 +108,31 @@ if (typeof document !== "undefined") {
     $("formMessage").textContent = "";
   });
   input.addEventListener("input", () => { $("formMessage").textContent = ""; });
+
+  const heroPreview = $("heroReactionPreview");
+  const reactionClips = [
+    "img/reactions/reaction-01.mp4",
+    "img/reactions/reaction-02.mp4",
+    "img/reactions/reaction-03.mp4",
+    "img/reactions/reaction-04.mp4",
+    "img/reactions/reaction-05.mp4",
+    "img/reactions/reaction-06.mp4"
+  ];
+  if (heroPreview && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    let clipIndex = 0;
+    function playHeroClip() {
+      heroPreview.src = reactionClips[clipIndex];
+      heroPreview.load();
+      heroPreview.play().catch(() => { /* Keep the poster when autoplay is unavailable. */ });
+    }
+    heroPreview.muted = true;
+    heroPreview.playsInline = true;
+    playHeroClip();
+    window.setInterval(() => {
+      clipIndex = (clipIndex + 1) % reactionClips.length;
+      playHeroClip();
+    }, 5000);
+  }
 
   // Restore the original typed placeholder without a Typed.js dependency.
   // It does not change the value, and pauses whenever the user interacts.
