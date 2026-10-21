@@ -3,83 +3,139 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#ffffff">
-  <meta name="description" content="Find the reaction you're looking for. Search curated reaction accounts on X, or add your own.">
-  <meta property="og:title" content="ReactionHub — Find your reaction">
-  <meta property="og:description" content="One search for the best reactions on X.">
+  <meta name="theme-color" content="#fcfbf9">
+  <meta name="color-scheme" content="light">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <title>Find Reaction Videos on X (Twitter) | ReactionHub</title>
+  <meta name="description" content="Find reaction videos on X (formerly Twitter). Search curated stan Twitter, meme and K-pop accounts, or add your own. Free and easy to use.">
+  <link rel="canonical" href="https://emahhh.github.io/ReactionHub/">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
   <meta property="og:type" content="website">
-  <title>ReactionHub — Find your reaction</title>
-  <link rel="icon" href="img/iphone-icon.png">
-  <link rel="apple-touch-icon" href="img/iphone-icon.png">
+  <meta property="og:site_name" content="ReactionHub">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://emahhh.github.io/ReactionHub/">
+  <meta property="og:title" content="Find Reaction Videos on X (Twitter) | ReactionHub">
+  <meta property="og:description" content="The right reaction, without the endless scrolling. Find Twitter reaction videos from curated accounts on X.">
+  <meta property="og:image" content="https://emahhh.github.io/ReactionHub/og-image.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ReactionHub — Find your reaction video on X. Search curated Twitter reaction accounts.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Find Reaction Videos on X (Twitter) | ReactionHub">
+  <meta name="twitter:description" content="Find the perfect reaction video. Search curated Twitter and K-pop reaction accounts on X.">
+  <meta name="twitter:image" content="https://emahhh.github.io/ReactionHub/og-image.png">
+  <meta name="twitter:image:alt" content="ReactionHub — Find your reaction video on X (Twitter).">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://emahhh.github.io/ReactionHub/#website",
+        "name": "ReactionHub",
+        "url": "https://emahhh.github.io/ReactionHub/",
+        "description": "A free tool for finding reaction videos on X (formerly Twitter) using curated accounts.",
+        "inLanguage": "en"
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://emahhh.github.io/ReactionHub/#app",
+        "name": "ReactionHub",
+        "url": "https://emahhh.github.io/ReactionHub/",
+        "description": "Search for reaction videos on X (Twitter) from stan Twitter, Italian and K-pop accounts, or your own list.",
+        "applicationCategory": "EntertainmentApplication",
+        "operatingSystem": "Any",
+        "isAccessibleForFree": true,
+        "creator": {"@type": "Person", "name": "Emanuele Buonaccorsi", "url": "https://emanuele.click/"},
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}
+      }
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daisyui@5" type="text/css">
   <link rel="stylesheet" href="style.css">
   <script src="ReactionHub.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#typed">Skip to search</a>
-  <header class="site-header layout">
-    <a class="wordmark" href="./" aria-label="ReactionHub home"><span class="brand-icon" aria-hidden="true">✳</span> reactionhub<span class="brand-dot">.</span></a>
-    <a class="header-link" href="https://github.com/Emahhh/ReactionHub" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
-  </header>
-
-  <main class="layout">
-    <section class="intro" aria-labelledby="page-title">
-      <h1 id="page-title">Find your reaction<span class="title-dot">.</span></h1>
-      <p>The right reaction, without the endless scrolling. Search curated accounts on X.</p>
-    </section>
-
-    <form id="searchForm" action="https://x.com/search" method="get" target="_blank" novalidate>
-      <input type="hidden" name="q" id="searchQueryParam">
-      <input type="hidden" name="f" id="searchTabParam" value="media">
-      <label class="sr-only" for="typed">Search reactions</label>
-      <div class="search-box">
-        <svg class="search-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
-        <input id="typed" class="input" type="search" autocomplete="off" placeholder="Crying, side eye, Lady Gaga…" aria-describedby="searchHint">
-        <button class="btn btn-primary" type="submit">Search <span aria-hidden="true">↗</span></button>
-      </div>
-      <p class="microcopy" id="searchHint">A word, name or quote. Leave empty to browse selected accounts.</p>
-
-      <div class="source-heading"><span>Search within</span><button class="edit-link" type="button" id="editAccounts">Edit my accounts <span aria-hidden="true">↗</span></button></div>
-      <div class="source-grid" id="sourceGrid" role="group" aria-label="Account collections">
-        <label class="source-chip"><input type="checkbox" data-source="stan" checked><span>Stan Twitter</span><span class="chip-check" aria-hidden="true">✓</span></label>
-        <label class="source-chip"><input type="checkbox" data-source="italian"><span>Italian</span><span class="chip-check" aria-hidden="true">✓</span></label>
-        <label class="source-chip"><input type="checkbox" data-source="kpop"><span>K-pop</span><span class="chip-check" aria-hidden="true">✓</span></label>
-        <label class="source-chip"><input type="checkbox" data-source="custom" id="customSource"><span>My accounts</span><span class="chip-check" aria-hidden="true">✓</span></label>
-      </div>
-      <span hidden id="stanCount"></span><span hidden id="italianCount"></span><span hidden id="kpopCount"></span><span hidden id="customCount"></span>
-      <p class="microcopy source-summary" id="sourceSummary" aria-live="polite"></p>
-
-      <details class="options">
-        <summary><span>Search options <span id="optionSummary" class="options-summary">All media · Media tab</span></span><span class="chevron" aria-hidden="true">⌄</span></summary>
-        <div class="options-content">
-          <label class="setting"><span>Media type</span><select class="select select-bordered" id="mediaFilter"><option value="media">Photos &amp; videos</option><option value="videos">Videos only</option><option value="images">Images only</option></select></label>
-          <label class="setting"><span>Results</span><select class="select select-bordered" id="resultsView"><option value="media">Media</option><option value="live">Latest</option><option value="top">Top</option></select></label>
-          <label class="setting setting-switch"><span>Exact phrase</span><input class="toggle toggle-sm" type="checkbox" id="exactPhrase" role="switch"></label>
-          <label class="setting setting-switch"><span>Search all of X <small>(ignore collections)</small></span><input class="toggle toggle-sm" type="checkbox" id="searchAll" role="switch"></label>
-          <div class="query-row"><code id="queryPreview" aria-live="polite"></code><button class="btn btn-ghost btn-sm" type="button" id="copySearch">Copy link ↗</button></div>
-        </div>
-      </details>
-      <p id="formMessage" class="form-message" role="status" aria-live="polite"></p>
-    </form>
-
-    <div class="examples" id="suggestions" aria-label="Suggested searches"><span>Try</span><button type="button" data-query="crying">Crying</button><button type="button" data-query="side eye">Side eye</button><button type="button" data-query="screaming">Screaming</button><button type="button" data-query="Wendy Williams">Wendy Williams</button><button type="button" data-query="Nicki Minaj">Nicki Minaj</button><button type="button" data-query="Gaga">Gaga</button></div>
-
-    <details class="secondary-section" id="recentDetails" hidden><summary>Recent searches <span aria-hidden="true">⌄</span></summary><p id="recentEmpty" class="microcopy">Your recent searches appear here. Saved only on this device.</p><div class="recent-list" id="recentList"></div><button type="button" class="edit-link" id="clearRecent" hidden>Clear history</button></details>
-
-    <section class="search-results" id="searchResults" hidden aria-labelledby="fallback-title"><h2 id="fallback-title">Not finding it on X?</h2><p>Try a smaller group of accounts or a different results tab.</p><div class="fallback-links" id="batchLinks"></div><a class="full-search" href="https://x.com/search" id="fullSearchLink" target="_blank" rel="noopener noreferrer">Open original search ↗</a></section>
-  </main>
-
-  <footer class="layout footer"><span>ReactionHub is not affiliated with X.</span><span>Find the moment.</span></footer>
-
+  <div class="page">
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="ReactionHub home">
+        <span class="brand-symbol" aria-hidden="true">↗</span>
+        <span>reactionhub<span class="brand-dot">.</span></span>
+      </a>
+    </header>
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <h1 id="page-title">Find your <span class="highlight">reaction video</span> on X<span class="brand-dot">.</span></h1>
+        <p class="subtitle">The right reaction, without the endless scrolling.<br>Search curated video accounts on X (formerly Twitter).</p>
+        <form id="searchForm" action="https://x.com/search" method="get" target="_blank" autocomplete="off" novalidate>
+          <input name="q" id="searchQueryParam" type="hidden">
+          <input name="f" id="searchTabParam" type="hidden" value="media">
+          <label class="sr-only" for="typed">Search for reaction videos on X (Twitter)</label>
+          <div class="search-box">
+            <svg class="search-icon" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="10.9" cy="10.9" r="7.6"/><path d="m16.5 16.5 5 5"/></svg>
+            <input id="typed" class="input" type="search" maxlength="200" placeholder="Crying, side eye, Lady Gaga..." aria-describedby="searchHint">
+            <button class="btn btn-primary search-button" type="submit">Search <span aria-hidden="true">↗</span></button>
+          </div>
+          <p class="sr-only" id="searchHint">Search by keyword, name, or quote. Leave empty to browse videos from selected accounts.</p>
+          <div class="source-heading">
+            <strong id="sources-title">Search within</strong>
+            <button type="button" class="edit-link" id="editAccounts">Edit my accounts <span aria-hidden="true">↗</span></button>
+          </div>
+          <div class="source-grid" id="sourceGrid" role="group" aria-labelledby="sources-title">
+            <label class="source-chip"><input type="checkbox" data-source="stan" checked><span>Stan Twitter</span><span class="chip-check" aria-hidden="true">✓</span></label>
+            <label class="source-chip"><input type="checkbox" data-source="italian"><span>Italian</span><span class="chip-check" aria-hidden="true">✓</span></label>
+            <label class="source-chip"><input type="checkbox" data-source="kpop"><span>K-pop</span><span class="chip-check" aria-hidden="true">✓</span></label>
+            <label class="source-chip"><input type="checkbox" data-source="custom"><span>My accounts</span><span class="chip-check" aria-hidden="true">✓</span></label>
+          </div>
+          <p id="formMessage" class="form-message" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+      <section class="faq" aria-labelledby="faq-title">
+        <h2 id="faq-title">Frequently asked questions<span class="brand-dot">.</span></h2>
+        <details>
+          <summary>How do I find reaction videos on X (Twitter)?</summary>
+          <p>Type a keyword, name or quote, choose a collection, and press Search. ReactionHub creates a targeted X search using selected reaction video accounts. The results open on X, where you can view and share the original posts.</p>
+        </details>
+        <details>
+          <summary>Does ReactionHub still work with Twitter?</summary>
+          <p>Twitter is now called X. ReactionHub searches public posts on X using its search operators, including videos from stan Twitter, Italian and K-pop accounts. X search availability can change, and you may need to sign in to view results.</p>
+        </details>
+        <details>
+          <summary>Can I search my favorite Twitter accounts?</summary>
+          <p>Yes. Select “Edit my accounts” to save your own list of X usernames. Your accounts are saved only in this browser, and you can combine them with the curated collections.</p>
+        </details>
+        <details>
+          <summary>Why am I getting no results on X?</summary>
+          <p>X sometimes returns few or no results for long searches. Try a shorter keyword, fewer collections, or just one account group. Make sure you are signed into X. ReactionHub doesn't control which posts X includes in its search results.</p>
+        </details>
+        <details>
+          <summary>Is ReactionHub free?</summary>
+          <p>Yes. ReactionHub is a free, open-source tool made by Emanuele. It doesn't host or download videos, and you don't need a ReactionHub account. Searches are carried out on X.</p>
+        </details>
+      </section>
+    </main>
+    <footer class="footer">
+      <span>Made by <a href="https://emanuele.click/" rel="author me noopener noreferrer" target="_blank">emanuele.click ↗</a></span>
+      <span><a href="https://github.com/Emahhh/ReactionHub" rel="noopener noreferrer" target="_blank">Open source on GitHub ↗</a></span>
+      <span class="disclaimer">Not affiliated with X or Twitter.</span>
+    </footer>
+  </div>
   <dialog class="modal" id="customDialog" aria-labelledby="dialogTitle">
     <div class="modal-box custom-dialog">
-      <div class="modal-top"><h2 id="dialogTitle">My accounts</h2><button class="btn btn-ghost btn-circle btn-sm" type="button" id="closeDialog" aria-label="Close dialog">✕</button></div>
-      <p class="dialog-desc">Add X accounts to search. One username per line or separated by commas.</p>
-      <label class="sr-only" for="customAccounts">X usernames</label>
+      <div class="modal-heading"><h2 id="dialogTitle">My accounts</h2><button type="button" class="btn btn-ghost btn-circle" id="closeDialog" aria-label="Close dialog">×</button></div>
+      <p>Add the X (Twitter) accounts you want to search, one username per line or separated by commas.</p>
+      <label class="sr-only" for="customAccounts">Twitter account usernames</label>
       <textarea class="textarea textarea-bordered" id="customAccounts" rows="7" spellcheck="false" placeholder="@favorite_reactions&#10;@another_account"></textarea>
-      <p class="microcopy">Up to 60 accounts. Saved only in this browser.</p>
-      <p id="customMessage" class="form-message" role="status"></p>
-      <div class="dialog-actions"><button class="btn btn-ghost" type="button" id="cancelCustom">Cancel</button><button class="btn btn-primary" type="button" id="saveCustom">Save accounts</button></div>
+      <p class="dialog-hint">Up to 60 usernames. Saved only in this browser.</p>
+      <p class="form-message" id="customMessage" role="status" aria-live="polite"></p>
+      <div class="dialog-actions"><button type="button" class="btn btn-ghost" id="cancelCustom">Cancel</button><button type="button" class="btn btn-primary" id="saveCustom">Save accounts</button></div>
     </div>
     <form method="dialog" class="modal-backdrop"><button aria-label="Close dialog">Close</button></form>
   </dialog>
