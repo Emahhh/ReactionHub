@@ -110,12 +110,16 @@ if (typeof document !== "undefined") {
     $("formMessage").textContent = "";
   });
   input.addEventListener("input", () => { $("formMessage").textContent = ""; });
+  const defaultPlaceholder = input.placeholder;
+  input.addEventListener("focus", () => { input.placeholder = "Search…"; });
+  input.addEventListener("blur", () => { input.placeholder = defaultPlaceholder; });
 
   const examples = ["Crying...", "Side eye...", "Lady Gaga...", "Wendy Williams...", "Nicki Minaj laughing...", "K-pop fancam...", "Screaming..."];
   if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     let exampleIndex = 0;
     let letters = 0;
     let deleting = false;
+    input.addEventListener("focus", () => { letters = 0; deleting = false; });
     function animatePlaceholder() {
       if (document.hidden || document.activeElement === input || input.value) {
         window.setTimeout(animatePlaceholder, 650);
