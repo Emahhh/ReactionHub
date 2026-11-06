@@ -93,18 +93,29 @@
             <button class="btn btn-primary search-button" type="submit">Search <span aria-hidden="true">↗</span></button>
           </div>
           <p class="sr-only" id="searchHint">Search by keyword, name, or quote. Leave empty to browse videos from selected accounts.</p>
+          <div class="search-suggestions" role="group" aria-label="Suggested searches">
+            <span>Try</span>
+            <button type="button" data-suggestion="crying">crying</button>
+            <button type="button" data-suggestion="laughing">laughing</button>
+            <button type="button" data-suggestion="side eye">side eye</button>
+            <button type="button" data-suggestion="shocked">shocked</button>
+            <button type="button" data-suggestion="screaming">screaming</button>
+          </div>
+          <details class="advanced-settings">
+          <summary>Advanced settings</summary>
           <div class="source-heading">
             <strong id="sources-title">Search within</strong>
           </div>
-          <div class="source-grid" id="sourceGrid" role="group" aria-labelledby="sources-title">
-            <label class="source-chip"><input type="checkbox" data-source="stan" checked><span>Stan Twitter</span><span class="chip-check" aria-hidden="true">✓</span></label>
-            <label class="source-chip"><input type="checkbox" data-source="italian"><span>Italian</span><span class="chip-check" aria-hidden="true">✓</span></label>
-            <label class="source-chip"><input type="checkbox" data-source="kpop"><span>K-pop</span><span class="chip-check" aria-hidden="true">✓</span></label>
+          <div class="source-grid" id="sourceGrid" role="radiogroup" aria-labelledby="sources-title">
+            <label class="source-chip"><input type="radio" name="source" data-source="stan" checked><span>Stan Twitter</span><span class="chip-check" aria-hidden="true">✓</span></label>
+            <label class="source-chip"><input type="radio" name="source" data-source="italian"><span>Italian</span><span class="chip-check" aria-hidden="true">✓</span></label>
+            <label class="source-chip"><input type="radio" name="source" data-source="kpop"><span>K-pop</span><span class="chip-check" aria-hidden="true">✓</span></label>
             <span class="custom-source-wrap">
-              <label class="source-chip custom-source"><input type="checkbox" data-source="custom"><span>My accounts</span><span class="chip-check" aria-hidden="true">✓</span></label>
+              <label class="source-chip custom-source"><input type="radio" name="source" data-source="custom"><span>My accounts</span><span class="chip-check" aria-hidden="true">✓</span></label>
               <button class="edit-account-icon" id="editAccounts" type="button" aria-label="Edit my accounts" title="Edit my accounts"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15.5 5.5 3 3M4 20l4.3-.9L19 8.4a2.1 2.1 0 0 0-3-3L5.3 16.1 4 20Z"/></svg></button>
             </span>
           </div>
+          </details>
           <p id="formMessage" class="form-message" role="status" aria-live="polite"></p>
           </form>
         </div>
@@ -113,7 +124,7 @@
         <h2 id="faq-title">Good to know</h2>
         <details>
           <summary>How does it work?</summary>
-          <p>Enter a keyword, name or quote and choose your collections. ReactionHub opens a video search on X using those accounts. Leave the search blank to browse.</p>
+          <p>Enter a keyword, name or quote and choose a collection in advanced settings. ReactionHub opens a video search on X using those accounts. Leave the search blank to browse.</p>
         </details>
         <details>
           <summary>Do I need an account?</summary>
@@ -125,7 +136,7 @@
         </details>
         <details>
           <summary>Why am I getting no results?</summary>
-          <p>Try a shorter phrase or fewer collections, and check that you’re signed into X. Results depend on X’s search.</p>
+          <p>Try a shorter phrase or another collection, and check that you’re signed into X. Results depend on X’s search.</p>
         </details>
         <details>
           <summary>Is ReactionHub free?</summary>

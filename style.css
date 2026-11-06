@@ -47,7 +47,18 @@ h1 em { font-family: Georgia, "Times New Roman", serif; font-size: 1.16em; font-
 .search-box .input::placeholder { color: #99928a; opacity: 1; }
 .search-box .search-button { flex: 0 0 auto; min-height: 54px; padding: 0 24px; border: 0; border-radius: 5px; background: var(--accent); color: var(--ink); box-shadow: none; font-size: 14px; font-weight: 650; text-transform: none; }
 .search-box .search-button:hover { background: #c8e162; }
-.source-heading { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin: 22px 0 11px; font-size: 12px; }
+.search-suggestions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 16px; color: var(--muted); font-size: 12px; }
+.search-suggestions span { margin-right: 4px; }
+.search-suggestions button { min-height: 32px; padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; background: transparent; color: #625c64; cursor: pointer; }
+.search-suggestions button:hover { border-color: #c9d99c; background: #edf2df; color: var(--ink); }
+.search-suggestions button:focus-visible { outline: 2px solid #8b9e4e; outline-offset: 2px; }
+.advanced-settings { margin-top: 26px; }
+.advanced-settings > summary { display: inline-flex; align-items: center; gap: 9px; min-height: 32px; color: var(--muted); font-size: 12px; cursor: pointer; list-style: none; }
+.advanced-settings > summary::-webkit-details-marker { display: none; }
+.advanced-settings > summary::after { content: "+"; font-size: 16px; }
+.advanced-settings[open] > summary::after { content: "−"; }
+.advanced-settings > summary:hover { color: var(--ink); }
+.source-heading { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin: 14px 0 12px; font-size: 12px; }
 .source-heading strong { color: var(--muted); font-weight: 500; }
 .source-grid { display: flex; flex-wrap: wrap; gap: 8px; }
 .custom-source-wrap { position: relative; display: inline-flex; }
@@ -98,6 +109,8 @@ h1 em { font-family: Georgia, "Times New Roman", serif; font-size: 1.16em; font-
   .search-icon { width: 18px; height: 18px; margin-left: 8px; }
   .search-box .input { padding: 13px 0; font-size: 15px; }
   .search-box .search-button { min-height: 50px; padding: 0 17px; font-size: 13px; }
+  .search-suggestions { gap: 8px; margin-top: 14px; }
+  .advanced-settings { margin-top: 20px; }
   .faq { grid-template-columns: 1fr; margin-top: 59px; padding-top: 21px; }
   .faq h2 { grid-column: auto; grid-row: auto; margin: 0 0 9px; }
   .faq details { grid-column: auto; }

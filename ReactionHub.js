@@ -69,10 +69,14 @@ if (typeof document !== "undefined") {
   $("focusSearch").addEventListener("click", () => input.focus());
 
   boxes.forEach(box => box.addEventListener("change", () => {
-    state.selected = boxes.filter(b => b.checked).map(b => b.dataset.source);
+    if (box.dataset.source === "custom" && !state.custom.length) {
+      render();
+      openEditor();
+      return;
+    }
+    state.selected = [box.dataset.source];
     persist();
     render();
-    if (box.dataset.source === "custom" && box.checked && !state.custom.length) openEditor();
   }));
 
   $("editAccounts").addEventListener("click", openEditor);
@@ -90,8 +94,8 @@ if (typeof document !== "undefined") {
       return;
     }
     state.custom = unique;
-    if (unique.length && !state.selected.includes("custom")) state.selected.push("custom");
-    if (!unique.length) state.selected = state.selected.filter(key => key !== "custom");
+    if (unique.length) state.selected = ["custom"];
+    else if (state.selected.includes("custom")) state.selected = ["stan"];
     persist();
     render();
     dialog.close();
@@ -110,6 +114,13 @@ if (typeof document !== "undefined") {
     $("formMessage").textContent = "";
   });
   input.addEventListener("input", () => { $("formMessage").textContent = ""; });
+  document.querySelectorAll("[data-suggestion]").forEach(button => {
+    button.addEventListener("click", () => {
+      input.value = button.dataset.suggestion;
+      $("formMessage").textContent = "";
+      input.focus();
+    });
+  });
   const defaultPlaceholder = input.placeholder;
   input.addEventListener("focus", () => { input.placeholder = "Search…"; });
   input.addEventListener("blur", () => { input.placeholder = defaultPlaceholder; });
